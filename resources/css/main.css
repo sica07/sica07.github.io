@@ -28,12 +28,12 @@ This is the parent `<div>` that contains the menu and the content area.
     padding-left: 0;
 }
     #layout.active #menu {
-        left: 200px;
-        width: 200px;
+        left: 300px;
+        width: 300px;
     }
 
     #layout.active .menu-link {
-        left: 200px;
+        left: 300px;
     }
 /*
 The content `<div>` is where all your content goes.
@@ -51,19 +51,22 @@ The content `<div>` is where all your content goes.
      color: #333;
      text-align: center;
      padding: 2.5em 2em 0;
-     border-bottom: 1px solid #eee;
+     /* border-bottom: 1px solid #eee; */
  }
     .header h1 {
         margin: 0.2em 0;
-        font-size: 3em;
+        font-size: 5em;
         font-weight: 300;
-    }
+        font-family: 'Raleway', sans-serif;
+        color: #e74c3c;
+}
      .header h2 {
         font-weight: 300;
-        color: #ccc;
+        color: #2c3e50;
         padding: 0;
         margin-top: 0;
-    }
+        font-family: 'Raleway', sans-serif;
+}
 
 .content-subhead {
     margin: 50px 0 20px 0;
@@ -79,14 +82,14 @@ appears on the left side of the page.
 */
 
 #menu {
-    margin-left: -200px; /* "#menu" width */
-    width: 200px;
+    margin-left: -300px; /* "#menu" width */
+    width: 300px;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
-    background: #ecf0f1;
+    background: #2c3e50;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -94,9 +97,15 @@ appears on the left side of the page.
     All anchors inside the menu should be styled like this.
     */
     #menu a {
-        color: #2c3e50;
+        color: #ecf0f1;
         border: none;
-        padding: 0.6em 0 0.6em 0.6em;
+        font-family: 'Raleway', sans-serif;
+        /*padding: 0.6em 0 0.6em 0.6em;*/
+        height: 21px;
+        line-height: 21px;
+        padding: 21px 36px;
+        font-size: 18px;
+        font-weight: normal;
     }
 
     /*
@@ -120,9 +129,18 @@ appears on the left side of the page.
         */
         #menu .pure-menu li a:hover,
         #menu .pure-menu li a:focus {
-            background: #fff;
+            background: #2c3e50;
         
             color: #e74c3c;
+            /* border-top: 1px solid #e74c3c; */
+            /*border-bottom: 1px solid;*/
+}
+        #menu .pure-menu li a:active,
+        #menu .pure-menu li a:focus {
+            background: #ecf0f1;
+        
+            color: #e74c3c;
+            border-bottom: 1px solid;
 }
 
     /*
@@ -203,6 +221,12 @@ small screens.
             margin-top: 0.6em;
         }
 
+        #home {
+          background: url('../../resources/img/bgc.jpg');
+        
+          background-size: cover;
+          background-repeat: no-repeat;
+}
 
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
 
@@ -215,24 +239,26 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     .content {
         padding-left: 2em;
         padding-right: 2em;
-    }
+    
+        text-shadow: aliceblue;
+}
 
     #layout {
-        padding-left: 200px; /* left col width "#menu" */
+        padding-left: 300px; /* left col width "#menu" */
         left: 0;
     }
     #menu {
-        left: 200px;
+        left: 300px;
     }
 
     .menu-link {
         position: fixed;
-        left: 200px;
+        left: 300px;
         display: none;
     }
 
     #layout.active .menu-link {
-        left: 200px;
+        left: 300px;
     }
 }
 
@@ -245,7 +271,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     */
     #layout.active {
         position: relative;
-        left: 200px;
+        left: 300px;
     }
 }
 
