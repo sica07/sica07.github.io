@@ -100,16 +100,17 @@
 .social-item {
   display: inline-block;
   color: #f23b3f;;
-  
+
   text-decoration: none;
   font-family: "monospace";
   margin-left: 15px;
+  padding: 2px 5px;
 
   -webkit-transition: all .1s ease-in;
   font-size: 13px;
 }
 .social-item:hover{
-  
+
   background-color: #f23b3f;
   color: #fff;
 }
