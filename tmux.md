@@ -1,5 +1,5 @@
 # Tmux
-[<TIL](knowledge.md)
+[<TIL](Programming.md)
 - [Fix vim color issues in tmux](#Fix vim color issues in tmux)
 - [Create a new named session with root directory](#Create a new named session with root directory)
 - [Hide status bar](#Hide status bar)
