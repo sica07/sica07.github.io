@@ -151,7 +151,7 @@ section {
     color: #444;
 }
 
-section > a {
+a {
     color: #f23b3f;
 }
 
@@ -162,6 +162,7 @@ section > code {
     display: block;
 }
 
-section > h2:not:first-child {
+section > h2 {
     padding-top: 2em;
+    border-top: 1px solid #ccc;
 }
