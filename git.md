@@ -1,16 +1,16 @@
 # Git
 [<TIL](Programming.md)
-- [Fixing mistakes](#Git#Fixing mistakes)
-- [Tagging versions](#Git#Tagging versions)
-- [Delete all untracked files](#Git#Delete all untracked files)
-- [Untrack a file or a directory without deleting it](#Git#Untrack a file or a directory without deleting it)
-- [Diffing with Patience algorithm](#Git#Diffing with Patience algorithm)
-- [Check to see all the changes in a commit](#Git#Check to see all the changes in a commit)
-- [Git philosophy](#Git#Git philosophy)
-    - [Goals](#Git#Git philosophy#Goals)
-    - [Implementation](#Git#Git philosophy#Implementation)
-    - [Conclusion](#Git#Git philosophy#Conclusion)
-- [Fetch vs. Pull](#Git#Git philosophy#Fetch vs. Pull)
+- [Fixing mistakes](#Fixing mistakes)
+- [Tagging versions](#Tagging versions)
+- [Delete all untracked files](#Delete all untracked files)
+- [Untrack a file or a directory without deleting it](#Untrack a file or a directory without deleting it)
+- [Diffing with Patience algorithm](#Diffing with Patience algorithm)
+- [Check to see all the changes in a commit](#Check to see all the changes in a commit)
+- [Git philosophy](#Git philosophy)
+    - [Goals](#Git philosophy#Goals)
+    - [Implementation](#Git philosophy#Implementation)
+    - [Conclusion](#Git philosophy#Conclusion)
+- [Fetch vs. Pull](#Git philosophy#Fetch vs. Pull)
 
 
 ## Fixing mistakes

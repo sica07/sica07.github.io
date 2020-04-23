@@ -1,10 +1,10 @@
 
 # Networking
 [<TIL](Programming.md)
-- [Determine the IP of a domain](#Networking#Determine the IP of a domain)
-- [How to make a POST request with :curl: from :command line:](#Networking#How to make a POST request with :curl: from :command line:)
-- [Check if a port is in use](#Networking#Check if a port is in use)
-- [Multiple ssh keys](#Networking#Multiple ssh keys)
+- [Determine the IP of a domain](#Determine the IP of a domain)
+- [How to make a POST request with :curl: from :command line:](#How to make a POST request with :curl: from :command line:)
+- [Check if a port is in use](#Check if a port is in use)
+- [Multiple ssh keys](#Multiple ssh keys)
 
 ## Determine the IP of a domain
 `$ host domainname.com`

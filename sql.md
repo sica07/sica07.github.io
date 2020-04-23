@@ -1,13 +1,13 @@
 # SQL
 [<TIL](Programming.md)
-- [Setting a foreign key](#SQL#Setting a foreign key)
-        - [Mandatory](#SQL#Setting a foreign key#Mandatory)
-        - [Debugging](#SQL#Setting a foreign key#Debugging)
-- [Show Create Statement for a table](#SQL#Show Create Statement for a table)
-- [Show indexes for a table](#SQL#Show indexes for a table)
-- [Profiling mysql queries](#SQL#Profiling mysql queries)
-    - [[modern/new profiling method](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html)](#SQL#Profiling mysql queries#[modern/new profiling method](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html))
-    - [[will be deprecated mysql profiling](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html)](#SQL#Profiling mysql queries#[will be deprecated mysql profiling](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html))
+- [Setting a foreign key](#Setting a foreign key)
+        - [Mandatory](#Setting a foreign key#Mandatory)
+        - [Debugging](#Setting a foreign key#Debugging)
+- [Show Create Statement for a table](#Show Create Statement for a table)
+- [Show indexes for a table](#Show indexes for a table)
+- [Profiling mysql queries](#Profiling mysql queries)
+    - [[modern/new profiling method](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html)](#Profiling mysql queries#[modern/new profiling method](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html))
+    - [[will be deprecated mysql profiling](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html)](#Profiling mysql queries#[will be deprecated mysql profiling](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html))
 
 ##Setting a foreign key
 Example:

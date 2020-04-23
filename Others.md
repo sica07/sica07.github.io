@@ -1,9 +1,9 @@
 # Linux
 [<TIL](Programming.md)
-- [Disable capslock](#Linux#Disable capslock)
-- [Creating a bootable USB using dd](#Linux#Creating a bootable USB using dd)
-- [Add suffix to filename](#Linux#Add suffix to filename)
-- [Check the status of all services](#Linux#Check the status of all services)
+- [Disable capslock](#Disable capslock)
+- [Creating a bootable USB using dd](#Creating a bootable USB using dd)
+- [Add suffix to filename](#Add suffix to filename)
+- [Check the status of all services](#Check the status of all services)
 
 ## Disable capslock
 Try creating the file 10-nocaps.conf with the following content:

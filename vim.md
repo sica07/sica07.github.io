@@ -1,13 +1,13 @@
 # VIM
 [<TIL](Programming.md)
-- [Favorite colorschemes](#VIM#Favorite colorschemes)
-    - [dark](#VIM#Favorite colorschemes#dark)
-    - [light](#VIM#Favorite colorschemes#light)
-- [Coc](#VIM#Coc)
-    - [Python](#VIM#Coc#Python)
-- [Xdebug with Vim and Docker](#VIM#Xdebug with Vim and Docker)
-- [Close all other](#VIM#Close all other)
-- [Spellcheck in vim](#VIM#Spellcheck in vim)
+- [Favorite colorschemes](#Favorite colorschemes)
+    - [dark](#Favorite colorschemes#dark)
+    - [light](#Favorite colorschemes#light)
+- [Coc](#Coc)
+    - [Python](#Coc#Python)
+- [Xdebug with Vim and Docker](#Xdebug with Vim and Docker)
+- [Close all other](#Close all other)
+- [Spellcheck in vim](#Spellcheck in vim)
 
 ## Favorite colorschemes
 

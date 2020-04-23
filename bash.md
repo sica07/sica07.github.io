@@ -1,10 +1,10 @@
 # Bash
 [<TIL](Programming.md)
-- [Diff in one line from two files](#Bash#Diff in one line from two files)
-- [Printing from command line](#Bash#Printing from command line)
-- [Add suffix to filename](#Bash#Add suffix to filename)
-- [Saying Yes](#Bash#Saying Yes)
-- [Print all env variables](#Bash#Print all env variables)
+- [Diff in one line from two files](#Diff in one line from two files)
+- [Printing from command line](#Printing from command line)
+- [Add suffix to filename](#Add suffix to filename)
+- [Saying Yes](#Saying Yes)
+- [Print all env variables](#Print all env variables)
 
 ## Diff in one line from two files
 Have you ever done something like this?
