@@ -144,3 +144,24 @@
         font-size: 10px;
     }
 }
+
+section {
+    text-align: left;
+    font-family: arial;
+    color: #444;
+}
+
+section > a {
+    color: #f23b3f;
+}
+
+section > code {
+    background: #eee;
+    color: #222;
+    padding: .5em;
+    display: block;
+}
+
+section > h2:not:first-child {
+    padding-top: 2em;
+}
