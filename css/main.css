@@ -155,7 +155,7 @@ a {
     color: #f23b3f;
 }
 
-section > code {
+code {
     background: #eee;
     color: #222;
     padding: .5em;
