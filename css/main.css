@@ -172,6 +172,12 @@ section > h2 {
     border-top: 1px solid #ccc;
 }
 
+section > h1 > a {
+    color: #444;
+    border-bottom: 1px solid dotted #ccc;
+    text-decoration: none;
+}
+
 blockquote {
     border-left: .3em solid #ccc;
     padding-left: 1em;
