@@ -41,30 +41,3 @@ e.g to change the name of a file from old.name to old.name_backup:
 `$ printenv | less`
 
 [source](https://twitter.com/dailylaravel/status/1046716110463291392)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-layout: default
----
