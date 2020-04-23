@@ -174,7 +174,7 @@ section > h2 {
 
 section > h1 > a {
     color: #444;
-    border-bottom: 1px solid dotted #ccc;
+    border-bottom: 1px dotted #ccc;
     text-decoration: none;
 }
 
