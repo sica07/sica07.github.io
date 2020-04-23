@@ -1,26 +1,24 @@
-# Today I Learned
+# [Tools](tools.md)
 
 
-## [Tools](tools.md)
+# [Bash](bash.md)
+# [GIT](git.md)
+# [Go](GO.md)
+# [Laravel](laravel.md)
+# [Linux](Others.md)
+# [network](curl.md)
+# [PHP](php.md)
+# [PhpConference2019](PhpConference2019.md)
+# [sql](sql.md)
+# [tmux](tmux.md)
+# [Vim](vim.md)
+# [xdebug](xdebug.md)
 
-## [Laravel](laravel.md)
 
-## [Bash](bash.md)
 
-## [GIT](git.md)
 
-## [Vim](vim.md)
 
-## [tmux](tmux.md)
 
-## [xdebug](xdebug.md)
 
-## [sql](sql.md)
 
-## [network](curl.md)
 
-## [Linux](Others.md)
-
-## [PHP](php.md)
-
-## [PhpConference2019](PhpConference2019.md)

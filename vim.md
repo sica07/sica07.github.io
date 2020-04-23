@@ -7,6 +7,7 @@
     - [Python](#VIM#Coc#Python)
 - [Xdebug with Vim and Docker](#VIM#Xdebug with Vim and Docker)
 - [Close all other](#VIM#Close all other)
+- [Spellcheck in vim](#VIM#Spellcheck in vim)
 
 ## Favorite colorschemes
 
@@ -108,4 +109,6 @@ Close all other windows/splits
 Close all other tabs
 `:tabonly`
 
-
+## Spellcheck in vim
+While on a misspelled word use `z=` to list all variations.
+If you want to bring up only the dictionary omnicomplete do a `<C-x><C-k>`.

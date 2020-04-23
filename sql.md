@@ -5,6 +5,9 @@
         - [Debugging](#SQL#Setting a foreign key#Debugging)
 - [Show Create Statement for a table](#SQL#Show Create Statement for a table)
 - [Show indexes for a table](#SQL#Show indexes for a table)
+- [Profiling mysql queries](#SQL#Profiling mysql queries)
+    - [[modern/new profiling method](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html)](#SQL#Profiling mysql queries#[modern/new profiling method](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html))
+    - [[will be deprecated mysql profiling](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html)](#SQL#Profiling mysql queries#[will be deprecated mysql profiling](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html))
 
 ##Setting a foreign key
 Example:
@@ -60,3 +63,157 @@ Create Table: CREATE TABLE `users` (
 ```
 
 [source](https://github.com/jbranchaud/til/blob/master/mysql/show-indexes-for-a-table.md)
+
+## Profiling mysql queries
+
+### [modern/new profiling method](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html)
+
+  ```
+  mysql> UPDATE performance_schema.setup_instruments
+      SET ENABLED = 'YES', TIMED = 'YES'
+      WHERE NAME LIKE '%statement/%';
+
+  mysql> UPDATE performance_schema.setup_instruments
+      SET ENABLED = 'YES', TIMED = 'YES'
+      WHERE NAME LIKE '%stage/%';
+
+  mysql> UPDATE performance_schema.setup_consumers
+      SET ENABLED = 'YES'
+      WHERE NAME LIKE '%events_statements_%';
+
+  mysql> UPDATE performance_schema.setup_consumers
+      SET ENABLED = 'YES'
+      WHERE NAME LIKE '%events_stages_%';
+  ```
+
+  ```
+  mysql> SELECT * FROM employees.employees WHERE emp_no = 10001;
+  ```
+
+  ```
+  mysql> SELECT EVENT_ID, TRUNCATE(TIMER_WAIT/1000000000000,6) as Duration, SQL_TEXT
+      FROM performance_schema.events_statements_history_long WHERE SQL_TEXT like '%10001%';
+
+       +----------+----------+--------------------------------------------------------+
+       | event_id | duration | sql_text                                               |
+       +----------+----------+--------------------------------------------------------+
+       |       31 | 0.028310 | SELECT * FROM employees.employees WHERE emp_no = 10001 |
+       +----------+----------+--------------------------------------------------------+
+  ```
+
+  ```
+       mysql> SELECT event_name AS Stage, TRUNCATE(TIMER_WAIT/1000000000000,6) AS Duration
+      FROM performance_schema.events_stages_history_long WHERE NESTING_EVENT_ID=31;
+       +--------------------------------+----------+
+       | Stage                          | Duration |
+       +--------------------------------+----------+
+       | stage/sql/starting             | 0.000080 |
+       | stage/sql/checking permissions | 0.000005 |
+       | stage/sql/Opening tables       | 0.027759 |
+       | stage/sql/init                 | 0.000052 |
+       | stage/sql/System lock          | 0.000009 |
+       | stage/sql/optimizing           | 0.000006 |
+       | stage/sql/statistics           | 0.000082 |
+       | stage/sql/preparing            | 0.000008 |
+       | stage/sql/executing            | 0.000000 |
+       | stage/sql/Sending data         | 0.000017 |
+       | stage/sql/end                  | 0.000001 |
+       | stage/sql/query end            | 0.000004 |
+       | stage/sql/closing tables       | 0.000006 |
+       | stage/sql/freeing items        | 0.000272 |
+       | stage/sql/cleaning up          | 0.000001 |
+       +--------------------------------+----------+
+  ```
+
+  ```
+    mysql> UPDATE performance_schema.setup_consumers
+          SET ENABLED = 'NO'
+          WHERE NAME LIKE '%events_statements_%';
+
+   mysql> UPDATE performance_schema.setup_consumers
+          SET ENABLED = 'NO'
+          WHERE NAME LIKE '%events_stages_%';
+  ```
+
+### [will be deprecated mysql profiling](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html)
+The SQL Profiler is built into the database server and can be dynamically enabled/disabled via the MySQL client utility.
+To begin profiling one or more SQL queries, simply issue the following command:
+
+  `mysql> set profiling=1;`
+
+Two things happen once you issue this command. First, any query you issue from this point on will be traced by the server with
+various performance diagnostics being created and attached to each distinct query. Second, a memory table named profiling
+is created in the INFORMATION_SCHEMA database for your particular session (not viewable by any other MySQL session)
+that stores all the SQL diagnostic results. This table remains persistent until you disconnect from MySQL at which point it is destroyed.
+Now, simply execute a SQL query:
+
+    `mysql> select count(*) from client where broker_id=2;`
+
+ ```
+    mysql> show profiles;
+
+      +----------+------------+-----------------------------------------------+
+      | Query_ID | Duration   | Query                                         |
+      +----------+------------+-----------------------------------------------+
+      |        0 | 0.00007300 | set profiling=1                               |
+      |        1 | 0.00044700 | select count(*) from client where broker_id=2 |
+      +----------+------------+-----------------------------------------------+
+ ```
+
+ ```
+      mysql> show profile for query 1;
+
+      +--------------------+------------+
+      | Status             | Duration   |
+      +--------------------+------------+
+      | (initialization)   | 0.00006300 |
+      | Opening tables     | 0.00001400 |
+      | System lock        | 0.00000600 |
+      | Table lock         | 0.00001000 |
+      | init               | 0.00002200 |
+      | optimizing         | 0.00001100 |
+      | statistics         | 0.00009300 |
+      | preparing          | 0.00001700 |
+      | executing          | 0.00000700 |
+      | Sending data       | 0.00016800 |
+      | end                | 0.00000700 |
+      | query end          | 0.00000500 |
+      | freeing items      | 0.00001200 |
+      | closing tables     | 0.00000800 |
+      | logging slow query | 0.00000400 |
+      +--------------------+------------+
+ ```
+
+ ```
+      mysql> select min(seq) seq,state,count(*) numb_ops,
+      -> round(sum(duration),5) sum_dur, round(avg(duration),5) avg_dur,
+      -> round(sum(cpu_user),5) sum_cpu, round(avg(cpu_user),5) avg_cpu
+      -> from information_schema.profiling
+      -> where query_id = 7
+      -> group by state
+      -> order by seq;
+      -------+----------------------+----------+---------+---------+---------+---------+
+      | seq   | state                | numb_ops | sum_dur | avg_dur | sum_cpu | avg_cpu |
+      +-------+----------------------+----------+---------+---------+---------+---------+
+      |     0 | (initialization)     |        1 | 0.00004 | 0.00004 | 0.00000 | 0.00000 |
+      |     1 | Opening tables       |        1 | 0.00023 | 0.00023 | 0.00000 | 0.00000 |
+      |     2 | System lock          |        1 | 0.00001 | 0.00001 | 0.00000 | 0.00000 |
+      |     3 | Table lock           |        1 | 0.00001 | 0.00001 | 0.00000 | 0.00000 |
+      |     4 | checking permissions |        1 | 0.00010 | 0.00010 | 0.00000 | 0.00000 |
+      |     5 | optimizing           |        4 | 0.00004 | 0.00001 | 0.00000 | 0.00000 |
+      |     6 | statistics           |        4 | 0.00007 | 0.00002 | 0.00100 | 0.00025 |
+      |     7 | preparing            |        4 | 0.00005 | 0.00001 | 0.00000 | 0.00000 |
+      |     8 | Creating tmp table   |        1 | 0.00003 | 0.00003 | 0.00000 | 0.00000 |
+      |     9 | executing            |    37352 | 0.16631 | 0.00000 | 0.05899 | 0.00000 |
+      |    10 | Copying to tmp table |        1 | 0.00006 | 0.00006 | 0.00000 | 0.00000 |
+      |    15 | Sending data         |    37353 | 3.85151 | 0.00010 | 3.72943 | 0.00010 |
+      | 74717 | Sorting result       |        1 | 0.00112 | 0.00112 | 0.00100 | 0.00100 |
+      | 74719 | removing tmp table   |        2 | 0.00003 | 0.00001 | 0.00000 | 0.00000 |
+      | 74721 | init                 |        1 | 0.00002 | 0.00002 | 0.00000 | 0.00000 |
+      | 74727 | end                  |        1 | 0.00001 | 0.00001 | 0.00000 | 0.00000 |
+      | 74728 | query end            |        1 | 0.00000 | 0.00000 | 0.00000 | 0.00000 |
+      | 74729 | freeing items        |        1 | 0.00002 | 0.00002 | 0.00000 | 0.00000 |
+      | 74730 | closing tables       |        2 | 0.00001 | 0.00001 | 0.00000 | 0.00000 |
+      | 74733 | logging slow query   |        1 | 0.00000 | 0.00000 | 0.00000 | 0.00000 |
+      +-------+----------------------+----------+---------+---------+---------+---------+
+ ```
