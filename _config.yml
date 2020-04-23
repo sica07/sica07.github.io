@@ -1,0 +1,18 @@
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - Programming.md
+  - tools.md
+  - bash.md
+  - git.md
+  - vim.md
+  - tmux.md
+  - xdebug.md
+  - sql.md
+  - curl.md
+  - Others.md
+  - php.md
+  - PhpConference2019.md
