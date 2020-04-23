@@ -1,5 +1,8 @@
 # Networking
 [<TIL](Programming.md)
+- [Determine the IP of a domain](#Networking#Determine the IP of a domain)
+- [How to make a POST request with :curl: from :command line:](#Networking#How to make a POST request with :curl: from :command line:)
+- [Check if a port is in use](#Networking#Check if a port is in use)
 
 ## Determine the IP of a domain
 `$ host domainname.com`

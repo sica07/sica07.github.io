@@ -160,9 +160,21 @@ code {
     color: #222;
     padding: .5em;
     display: block;
+    font-weight: normal !important;
+    font-style: none !important;
+}
+section {
+    padding: 1em;
 }
 
 section > h2 {
     padding-top: 2em;
     border-top: 1px solid #ccc;
+}
+
+blockquote {
+    border-left: .3em solid #ccc;
+    padding-left: 1em;
+    font-style: italic;
+    font-size: .8em;
 }

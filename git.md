@@ -1,7 +1,19 @@
 # Git
 [<TIL](Programming.md)
+- [Fixing mistakes](#Git#Fixing mistakes)
+- [Tagging versions](#Git#Tagging versions)
+- [Delete all untracked files](#Git#Delete all untracked files)
+- [Untrack a file or a directory without deleting it](#Git#Untrack a file or a directory without deleting it)
+- [Diffing with Patience algorithm](#Git#Diffing with Patience algorithm)
+- [Check to see all the changes in a commit](#Git#Check to see all the changes in a commit)
+- [Git philosophy](#Git#Git philosophy)
+    - [Goals](#Git#Git philosophy#Goals)
+    - [Implementation](#Git#Git philosophy#Implementation)
+    - [Conclusion](#Git#Git philosophy#Conclusion)
+- [Fetch vs. Pull](#Git#Git philosophy#Fetch vs. Pull)
 
-# Fixing mistakes
+
+## Fixing mistakes
 1. Spelled last commit message wrong
     `git commit --amend`
 
@@ -49,20 +61,20 @@
    ```
 [source] (https://medium.com/@i_AnkurBiswas/common-git-mistakes-and-how-to-fix-them-10184cd5fa77)
 
-#Tagging versions
+## Tagging versions
 Are you still not git tagging version?
 If so, you should automatically and for the logs you could just run
 "git log `git describe --tags --abbrev=0`..HEAD --oneline" which gives you
 all the change between now & the last version / tag and pipe that to your clipboard
 
 
-# Delete all untracked files
+## Delete all untracked files
 cleaning up (read: removing) untracked files from a local copy of a repository.
 `$ git clean -f -d`
 
 [source](https://github.com/jbranchaud/til/blob/master/git/delete-all-untracked-files.md)
 
-# Untrack a file or a directory without deleting it
+## Untrack a file or a directory without deleting it
 If you want to untrack a file (remove it from the index), but still have it available locally (in the working tree), then you are going to want to use the --cached flag.
 `$ git rm --cached <filename>`
 or for a directory
@@ -72,7 +84,7 @@ or for a directory
 [source](https://github.com/jbranchaud/til/blob/master/git/untrack-a-file-without-deleting-it.md)
 
 
-# Diffing with Patience algorithm
+## Diffing with Patience algorithm
 You can set this as the default algorithm by adding the following lines to your ~/.gitconfig file:
 ```
 [diff]
@@ -89,18 +101,18 @@ https://gist.github.com/roryokane/6f9061d3a60c1ba41237
 [source](https://github.com/jbranchaud/til/blob/master/git/diffing-with-patience.md)
 
 
-# Check to see all the changes in a commit
+## Check to see all the changes in a commit
 `$ git whatchanged`
 
-# Git philosophy
-## Goals
+## Git philosophy
+### Goals
 Git was designed to support a more distributed model with no need for a central repository
 (though you can certainly use one if you like). Also git was designed so that the client and
 the "server" don't need to be online at the same time. Git was designed so that people on an
 unreliable link could exchange code via email, even. It is possible to work completely
 disconnected and burn a CD to exchange code via git.
 
-## Implementation
+### Implementation
 In order to support this model git maintains:
 - a _local repository_ with **your code**
 - a _local repository_ that **mirrors the state of the remote repository**.
@@ -110,7 +122,7 @@ even when the remote repository is not reachable. Later when you need to send th
 to someone else, git can transfer them as a set of changes from a point in time known to the
 remote repository.
 
-## Conclusion
+### Conclusion
 The take away is to keep in mind that there are often at least three copies of a project
 on your workstation.
 One copy is your working copy where you are editing and building. (**_/home/you/workingtree_**)

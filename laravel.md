@@ -1,5 +1,12 @@
 # Laravel
 [<TIL](Programming.md)
+- [Eloquent return only/latest n rows](#Laravel#Eloquent return only/latest n rows)
+- [Redirect to Controller method with parameters](#Laravel#Redirect to Controller method with parameters)
+- [dd() at the end of a Eloquent sentence](#Laravel#dd() at the end of a Eloquent sentence)
+- [auth() in Blade](#Laravel#auth() in Blade)
+- [hasMany with specific checks](#Laravel#hasMany with specific checks)
+- [Where date methods in Eloquent](#Laravel#Where date methods in Eloquent)
+- [Run specific migration directory](#Laravel#Run specific migration directory)
 
 ## Eloquent return only/latest n rows
 

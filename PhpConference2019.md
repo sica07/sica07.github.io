@@ -1,5 +1,16 @@
 # PhpConference 2019
 [<TIL](Programming.md)
+- [Workshop](#PhpConference 2019#Workshop)
+- [Practical Security for Web Applications](#PhpConference 2019#Practical Security for Web Applications)
+- [Architecture Hands-On](#PhpConference 2019#Architecture Hands-On)
+- [Static code analysis in PHP](#PhpConference 2019#Static code analysis in PHP)
+- [Migrating from bare metal machines to aws ecs](#PhpConference 2019#Migrating from bare metal machines to aws ecs)
+- [Tools of the Trade](#PhpConference 2019#Tools of the Trade)
+- [An Introduction to Architecture Katas](#PhpConference 2019#An Introduction to Architecture Katas)
+- [PHP to Hack at Slack](#PhpConference 2019#PHP to Hack at Slack)
+- [PHPUnit Best Practices](#PhpConference 2019#PHPUnit Best Practices)
+- [ReactPHP](#PhpConference 2019#ReactPHP)
+- [Let's go frameworkless to focus on the domain again](#PhpConference 2019#Let's go frameworkless to focus on the domain again)
 
 ## Workshop
 - focus on the business problem, the domain

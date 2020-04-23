@@ -1,5 +1,10 @@
 # SQL
 [<TIL](Programming.md)
+- [Setting a foreign key](#SQL#Setting a foreign key)
+        - [Mandatory](#SQL#Setting a foreign key#Mandatory)
+        - [Debugging](#SQL#Setting a foreign key#Debugging)
+- [Show Create Statement for a table](#SQL#Show Create Statement for a table)
+- [Show indexes for a table](#SQL#Show indexes for a table)
 
 ##Setting a foreign key
 Example:

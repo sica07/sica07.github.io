@@ -1,5 +1,7 @@
 # Tools
 [<TIL](Programming.md)
+- [Tools for php development](#Tools#Tools for php development)
+- [[Contact form](https://formspree.io/)](#Tools#[Contact form](https://formspree.io/))
 
 ## Tools for php development
 `composer require --dev doctrine/coding-standard`

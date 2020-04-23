@@ -1,5 +1,12 @@
 # VIM
 [<TIL](Programming.md)
+- [Favorite colorschemes](#VIM#Favorite colorschemes)
+    - [dark](#VIM#Favorite colorschemes#dark)
+    - [light](#VIM#Favorite colorschemes#light)
+- [Coc](#VIM#Coc)
+    - [Python](#VIM#Coc#Python)
+- [Xdebug with Vim and Docker](#VIM#Xdebug with Vim and Docker)
+- [Close all other](#VIM#Close all other)
 
 ## Favorite colorschemes
 
@@ -33,7 +40,7 @@ After installing the `python-coc` make sure you run:
 `CocCommand <CR>`  and select `python.setInterpreter`
 
 
-# Xdebug with Vim and Docker
+## Xdebug with Vim and Docker
 
 **mandatory settings:**
 
@@ -91,7 +98,7 @@ in the _xdebug.ini_
 + exposing port _10000_ on the _docker-compose.yml_. No need for that
 
 
-# Close all other
+## Close all other
 Close all other windows/splits
 
 `:only`

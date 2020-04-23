@@ -1,5 +1,7 @@
-# Xdebug
+[#](#) Xdebug
 [<TIL](Programming.md)
+- [Full content of var_dump/xdebug](#Xdebug#Full content of var_dump/xdebug)
+- [Xdebug and Docker](#Xdebug#Xdebug and Docker)
 
 ## Full content of var_dump/xdebug
 ```
