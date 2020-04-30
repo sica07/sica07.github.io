@@ -55,12 +55,9 @@ The `lsof` command is used to _list open files_.
 
 `mv id_rsa domain_rsa`
 
-5. add a shortcut in the config file
+5. add a shortcut in the .ssh/conf file
 
 ```
-vim config
-//add the following lines:
-
 Host domainName
 Hostname domain.net
 IdentityFile ~/.ssh/domain_rsa
@@ -68,3 +65,81 @@ User www
 ```
 
 _"User" is the username for logging over ssh_
+
+## Make heavy use of the .ssh/config file
+```
+   Host x
+       Hostname full.host.name.com  (or 1.2.3.4)
+       User <myuser>
+       IdentitiesOnly yes
+       IdentityFile ~/.ssh/id_x_ed25519
+```
+Give hosts short names so you can `ssh x`
+
+[Source](https://news.ycombinator.com/user?id=m463)
+
+Use `Host *` at the beginning of the  config file for global settings
+```
+    Host *
+        Ciphers aes128-ctr
+        Compression yes
+        ServerAliveInterval 120
+        ForwardX11 yes
+```
+With this setup, typing `ssh example` is equivalent to
+`ssh -XCY -c aes128-ctr my_name@example.url.com`
+which definitely saves some keystrokes.
+
+[Source](https://news.ycombinator.com/item?id=23027786)
+## Automatic login
+Generate identities for some machines
+
+`  ssh-keygen -t ed25519 -f ~/.ssh/id_x_ed25519`
+
+use ssh-copy-id to copy the identity to the target machine so it lets you in:
+
+ ` ssh-copy-id -i ~/.ssh/id_x_ed25519.pub x`
+
+or if your machine doesn't have ssh-copy-id:
+
+  `cat ~/.ssh/id_x_ed25519.pub | ssh x "cat >> .ssh/authorized_keys"`
+
+[Source](https://news.ycombinator.com/user?id=m463)
+
+## Kill the ssh session
+`~.`
+Help about the ssh escape sequence:
+`~?`
+
+[Source](https://smallstep.com/blog/ssh-tricks-and-tips/)
+
+## Exit automatically on network interruptions
+In your .ssh/config, add:
+```
+ServerAliveInterval 5
+ServerAliveCountMax 1
+```
+What happens is that ssh will check the connection by sending an echo to the
+remote host every `ServerAliveInterval` seconds. If more than `ServerAliveCountMax`
+echos are sent without a response, ssh will timeout and exit.
+
+[Source](https://smallstep.com/blog/ssh-tricks-and-tips/)
+
+## Use ssh server as a proxy to another SSH server
+Useful for accessing servers behind a firewall, or using your own server as a proxy to
+bypass a bottleneck in the network.
+
+`$ ssh -J user1@host1 user_final@host_final`
+
+[Source](https://news.ycombinator.com/item?id=23026196)
+
+## Accessing internal resources externally via ssh
+
+`ssh -D9090 user@remote`
+
+Then, in Firefox, _set it to use a SOCK5 proxy of localhost:9090_ and _"Proxy DNS when using SOCKS v5"._
+Now, when you use Firefox it is as if you are using Firefox on the machine you are SSH'd into(including DNS resolution!).
+This is really handy for things like accessing otherwise unreachable resources or other internal resources externally.
+It is also handy to be able to put all your web traffic as originating from a remote VPS with no advanced setup required.
+
+[Source]( https://news.ycombinator.com/item?id=23027447 )

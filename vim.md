@@ -21,6 +21,7 @@
 * base16-material-dark
 * desertEx
 * twilight
+* gruvbox
 
 ### light
 * _whitebox_
