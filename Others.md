@@ -45,3 +45,13 @@ e.g to change the name of a file from old.name to old.name_backup:
 `$ sudo service --status-all`
 
 [source](https://github.com/jbranchaud/til/blob/master/devops/check-the-status-of-all-services.md)
+
+## Watch/capture webcam feed
+`$ ffplay /dev/video0`
+`$ mpv /dev/video0`
+or
+`$ mpv av://v4l2:/dev/video0`
+`$ vlc v4l2:///dev/video0`
+
+[Source](https://unix.stackexchange.com/questions/3304/how-do-i-watch-my-webcams-feed-in-linux)
+
