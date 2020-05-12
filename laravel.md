@@ -59,4 +59,5 @@ $items = Item::whereTime('created_at', '12:34:56')->get();
 ```
 [source](https://laravel-news.com/eloquent-tips-tricks)
 ## Run specific migration directory
+`php artisan make:migration --path="app/some_folder/some_migrations_folder" name_of_migration`
 `php artisan migrate --path="app/some_folder/some_migrations_folder"`

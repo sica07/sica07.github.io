@@ -55,3 +55,14 @@ or
 
 [Source](https://unix.stackexchange.com/questions/3304/how-do-i-watch-my-webcams-feed-in-linux)
 
+### How to install pass extensions
+This guide refers to extensions for passwordstore.org:
+`git clone https://github.com/browserpass/browserpass-native.git`
+`cd browserpass-native`
+`docker build -t browserpass-native .`
+`docker run --rm -v "$(pwd)":/src browserpass-native browserpass-linux64`
+`make BIN=browserpass-linux64 configure`
+`sudo make BIN=browserpass-linux64 install`
+`cp /usr/lib/browserpass/hosts/chromium/com.github.browserpass.native.json ~/.config/slimjet/NativeMessagingHosts/`
+
+[source](https://github.com/browserpass/browserpass-native#build-using-docker)
