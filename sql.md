@@ -66,7 +66,7 @@ Create Table: CREATE TABLE `users` (
 
 ## Profiling mysql queries
 
-### [modern/new profiling method](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html)
+### profiling method
 
   ```
   mysql> UPDATE performance_schema.setup_instruments
@@ -135,7 +135,9 @@ Create Table: CREATE TABLE `users` (
           WHERE NAME LIKE '%events_stages_%';
   ```
 
-### [will be deprecated mysql profiling](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html)
+[source](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html)
+
+### Mysql profiling (will be deprecated)
 The SQL Profiler is built into the database server and can be dynamically enabled/disabled via the MySQL client utility.
 To begin profiling one or more SQL queries, simply issue the following command:
 
@@ -217,3 +219,6 @@ Now, simply execute a SQL query:
       | 74733 | logging slow query   |        1 | 0.00000 | 0.00000 | 0.00000 | 0.00000 |
       +-------+----------------------+----------+---------+---------+---------+---------+
  ```
+
+
+[source](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html)

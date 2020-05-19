@@ -1,7 +1,6 @@
 # [Tools](tools.md)
 # [Bash](bash.md)
 # [GIT](git.md)
-# [Go](GO.md)
 # [Laravel](laravel.md)
 # [Linux](Others.md)
 # [network](curl.md)

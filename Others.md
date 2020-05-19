@@ -55,7 +55,7 @@ or
 
 [Source](https://unix.stackexchange.com/questions/3304/how-do-i-watch-my-webcams-feed-in-linux)
 
-### How to install pass extensions
+## How to install pass extensions
 This guide refers to extensions for passwordstore.org:
 `git clone https://github.com/browserpass/browserpass-native.git`
 `cd browserpass-native`
@@ -67,7 +67,7 @@ This guide refers to extensions for passwordstore.org:
 
 [source](https://github.com/browserpass/browserpass-native#build-using-docker)
 
-### Edit a long command that you previously run
+## Edit a long command that you previously run
 After you run the wrong command (or the one you wan to change)
 run `fc`. It will open a vim buffer and paste the last command you run.
 Edit it and when you close vim, it will run the command.
