@@ -145,24 +145,41 @@
     }
 }
 
+/*TIL css rules */
+:root {
+	/*--nc-font-sans: sans-serif;
+	--nc-font-mono: monospace;*/
+	--nc-tx-1: #444444;
+	--nc-tx-2: #1A1A1A;
+	--nc-bg-1: #FFFFFF;
+	--nc-bg-2: #F6F8FA;
+	--nc-bg-3: #E5E7EB;
+	--nc-lk-1: #f23b3f;
+	--nc-lk-2: #c00000;
+	--nc-lk-tx: #FFFFFF;
+	--nc-ac-1: #f23b3f;
+    --nc-ac-tx: #c00000;
+}
 section {
     text-align: left;
     font-family: arial;
     color: #444;
 }
-
+h1 > a {
+    color: #444;
+}
 a {
     color: #f23b3f;
 }
 
-code {
+/*code {
     background: #eee;
     color: #222;
     padding: .5em;
     display: block;
     font-weight: normal !important;
     font-style: none !important;
-}
+}*/
 section {
     padding: 1em;
 }
@@ -178,9 +195,9 @@ section > h1 > a {
     text-decoration: none;
 }
 
-blockquote {
+/*blockquote {
     border-left: .3em solid #ccc;
     padding-left: 1em;
     font-style: italic;
     font-size: .8em;
-}
+}*/
