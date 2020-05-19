@@ -66,3 +66,11 @@ This guide refers to extensions for passwordstore.org:
 `cp /usr/lib/browserpass/hosts/chromium/com.github.browserpass.native.json ~/.config/slimjet/NativeMessagingHosts/`
 
 [source](https://github.com/browserpass/browserpass-native#build-using-docker)
+
+### Edit a long command that you previously run
+After you run the wrong command (or the one you wan to change)
+run `fc`. It will open a vim buffer and paste the last command you run.
+Edit it and when you close vim, it will run the command.
+Or, use zsh with vim navigation :)
+
+[source](https://dl.suckless.org/slcon/2019/slcon-2019-03-marc_chantreux-acme_changed_my_life.webm)

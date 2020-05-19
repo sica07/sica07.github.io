@@ -113,3 +113,22 @@ Close all other tabs
 ## Spellcheck in vim
 While on a misspelled word use `z=` to list all variations.
 If you want to bring up only the dictionary omnicomplete do a `<C-x><C-k>`.
+
+## Running selected code
+Beacause the `!` is actually a pipe, we can visually select a block of code
+`phpinfo();`
+and then, in ex mode, run the command:
+`:'<,'>!php -a`
+or with sqlite3:
+```SQL
+CREATE TABLE tbl (
+    f1 [varchar](varchar)(30) primary key,
+    f2 text,
+    f3 real
+)
+```
+and then, in ex mode, run the command:
+`:'<,'>!sqlite3 nameof.db`
+and will create the table inside sqlite db.
+
+[source](https://dl.suckless.org/slcon/2019/slcon-2019-03-marc_chantreux-acme_changed_my_life.webm)
