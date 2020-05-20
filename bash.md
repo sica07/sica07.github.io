@@ -46,3 +46,21 @@ e.g to change the name of a file from old.name to old.name_backup:
 `$ printenv | less`
 
 [source](https://twitter.com/dailylaravel/status/1046716110463291392)
+
+## Check if a command succeeded in bashscript
+You could evaluate the _exit status_:
+```bash
+some_command
+if [ $? -neq 0 ]; then
+    echo "FAIL"
+fi
+```
+Or, the most simple way
+```
+if some_command; then
+    echo "OK"
+else
+   echo "FAIL"
+fi
+```
+[source](https://askubuntu.com/a/29379)

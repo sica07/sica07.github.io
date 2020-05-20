@@ -149,7 +149,7 @@ is created in the INFORMATION_SCHEMA database for your particular session (not v
 that stores all the SQL diagnostic results. This table remains persistent until you disconnect from MySQL at which point it is destroyed.
 Now, simply execute a SQL query:
 
-    `mysql> select count(*) from client where broker_id=2;`
+`mysql> select count(*) from client where broker_id=2;`
 
  ```
     mysql> show profiles;
