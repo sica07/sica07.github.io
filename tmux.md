@@ -29,3 +29,29 @@ This will tell vim the escape codes. It's explained in `:h xterm-true-color`.
 `:set status off`
 
 [source](https://github.com/jbranchaud/til/blob/master/tmux/hiding-the-status-bar.md)
+
+## Working with sessions
+List all sessions:
+`tmux ls`
+Attach to a session:
+`tmux a -t old_session`
+Create new session:
+`tmux new -s session_name`
+Switch to previous session:
+`ctrl-b )`
+Switch to next session:
+`ctrl-b (`
+Detach the session:
+`:detach`
+Kill a specific session:
+`tmux kill-session -t old_session`
+Kill all tmux open sessions:
+`:kill-server`
+Kill all _other_sessions:
+`tmux kill-session -a`
+[source](https://www.usenix.org/sites/default/files/conference/protected-files/lisa19_maheshwari.pdf)
+[source](https://askubuntu.com/a/868194)
+
+
+
+
