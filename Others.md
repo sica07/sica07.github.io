@@ -74,3 +74,25 @@ Edit it and when you close vim, it will run the command.
 Or, use zsh with vim navigation :)
 
 [source](https://dl.suckless.org/slcon/2019/slcon-2019-03-marc_chantreux-acme_changed_my_life.webm)
+
+## Hide tabs in firefox
+1. Add a userChrome.css file
+ - Open your currently active profile folder
+ - Create a new folder named chrome
+ - Create a new text file inside the chrome folder named _userChrome.css_
+ - Set Firefox to look for userChrome.css at startup
+[source](https://www.userchrome.org/how-create-userchrome-css.html)
+2. Add css rules to hide the bar:
+```css
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+  opacity: 0;
+  pointer-events: none;
+}
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar .titlebar-spacer {
+        border-inline-end: none;
+}
+```
+[source](https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#for-userchromecss)
