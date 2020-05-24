@@ -68,7 +68,7 @@ Create Table: CREATE TABLE `users` (
 
 ### profiling method
 
-  ```
+```
   mysql> UPDATE performance_schema.setup_instruments
       SET ENABLED = 'YES', TIMED = 'YES'
       WHERE NAME LIKE '%statement/%';
@@ -84,13 +84,13 @@ Create Table: CREATE TABLE `users` (
   mysql> UPDATE performance_schema.setup_consumers
       SET ENABLED = 'YES'
       WHERE NAME LIKE '%events_stages_%';
-  ```
+```
 
-  ```
+```
   mysql> SELECT * FROM employees.employees WHERE emp_no = 10001;
-  ```
+```
 
-  ```
+```
   mysql> SELECT EVENT_ID, TRUNCATE(TIMER_WAIT/1000000000000,6) as Duration, SQL_TEXT
       FROM performance_schema.events_statements_history_long WHERE SQL_TEXT like '%10001%';
 
@@ -99,9 +99,9 @@ Create Table: CREATE TABLE `users` (
        +----------+----------+--------------------------------------------------------+
        |       31 | 0.028310 | SELECT * FROM employees.employees WHERE emp_no = 10001 |
        +----------+----------+--------------------------------------------------------+
-  ```
+```
 
-  ```
+```
        mysql> SELECT event_name AS Stage, TRUNCATE(TIMER_WAIT/1000000000000,6) AS Duration
       FROM performance_schema.events_stages_history_long WHERE NESTING_EVENT_ID=31;
        +--------------------------------+----------+
@@ -123,9 +123,9 @@ Create Table: CREATE TABLE `users` (
        | stage/sql/freeing items        | 0.000272 |
        | stage/sql/cleaning up          | 0.000001 |
        +--------------------------------+----------+
-  ```
+```
 
-  ```
+```
     mysql> UPDATE performance_schema.setup_consumers
           SET ENABLED = 'NO'
           WHERE NAME LIKE '%events_statements_%';
@@ -133,7 +133,7 @@ Create Table: CREATE TABLE `users` (
    mysql> UPDATE performance_schema.setup_consumers
           SET ENABLED = 'NO'
           WHERE NAME LIKE '%events_stages_%';
-  ```
+```
 
 [source](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html)
 
@@ -151,7 +151,7 @@ Now, simply execute a SQL query:
 
 `mysql> select count(*) from client where broker_id=2;`
 
- ```
+```
     mysql> show profiles;
 
       +----------+------------+-----------------------------------------------+
@@ -160,9 +160,9 @@ Now, simply execute a SQL query:
       |        0 | 0.00007300 | set profiling=1                               |
       |        1 | 0.00044700 | select count(*) from client where broker_id=2 |
       +----------+------------+-----------------------------------------------+
- ```
+```
 
- ```
+```
       mysql> show profile for query 1;
 
       +--------------------+------------+
@@ -184,9 +184,9 @@ Now, simply execute a SQL query:
       | closing tables     | 0.00000800 |
       | logging slow query | 0.00000400 |
       +--------------------+------------+
- ```
+```
 
- ```
+```
       mysql> select min(seq) seq,state,count(*) numb_ops,
       -> round(sum(duration),5) sum_dur, round(avg(duration),5) avg_dur,
       -> round(sum(cpu_user),5) sum_cpu, round(avg(cpu_user),5) avg_cpu
@@ -218,7 +218,20 @@ Now, simply execute a SQL query:
       | 74730 | closing tables       |        2 | 0.00001 | 0.00001 | 0.00000 | 0.00000 |
       | 74733 | logging slow query   |        1 | 0.00000 | 0.00000 | 0.00000 | 0.00000 |
       +-------+----------------------+----------+---------+---------+---------+---------+
- ```
+```
 
 
 [source](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html)
+
+## When to use SQLite
+
+The point of SQLite is a replacement for generating a file format. Although it's a database,
+it lets us (developers) re-use our knowledge of databases when doing basic file I/O.
+Think of SQLite as a file format which happens to have a query interface, and not a database.
+SQLite really is a "file-format with a query language" rather than a "small database"
+"SQLite does not compete with client/server databases. SQLite competes with fopen()."
+if your data-access scenario is read-mostly write-sporadically, and your data being in a single place is ok, SQLite is fine.
+
+[source 1](https://news.ycombinator.com/item?id=23281994)
+[source 2](https://www.sqlite.org/whentouse.html)
+
