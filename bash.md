@@ -64,3 +64,13 @@ else
 fi
 ```
 [source](https://askubuntu.com/a/29379)
+
+## ZSH suffix aliases
+With suffix aliases, you can launch files with a specific extension (or suffix) in your favorite tool.
+To register a suffix alias, we use the `alias -s extension=name-of-the-tool` pattern.
+```bash
+alias -s pdf=zathura
+alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm}=mpv
+alias -s {jpg,jpeg,png}=feh
+```
+[source](https://thorsten-hans.com/5-types-of-zsh-aliases#suffix-aliases)

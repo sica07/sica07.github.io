@@ -228,9 +228,12 @@ Now, simply execute a SQL query:
 The point of SQLite is a replacement for generating a file format. Although it's a database,
 it lets us (developers) re-use our knowledge of databases when doing basic file I/O.
 Think of SQLite as a file format which happens to have a query interface, and not a database.
+
 SQLite really is a "file-format with a query language" rather than a "small database"
+
 "SQLite does not compete with client/server databases. SQLite competes with fopen()."
-if your data-access scenario is read-mostly write-sporadically, and your data being in a single place is ok, SQLite is fine.
+
+If your data-access scenario is read-mostly write-sporadically, and your data being in a single place is ok, SQLite is fine.
 
 [source 1](https://news.ycombinator.com/item?id=23281994)
 [source 2](https://www.sqlite.org/whentouse.html)
