@@ -186,10 +186,10 @@ section {
 
 section > h2 {
     padding-top: 2em;
-    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
-section > h1 > a {
+section > h2 > a {
     color: #444;
     border-bottom: 1px dotted #ccc;
     text-decoration: none;
