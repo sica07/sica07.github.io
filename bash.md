@@ -72,5 +72,17 @@ To register a suffix alias, we use the `alias -s extension=name-of-the-tool` pat
 alias -s pdf=zathura
 alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm}=mpv
 alias -s {jpg,jpeg,png}=feh
+alias -s git='git clone'
 ```
 [source](https://thorsten-hans.com/5-types-of-zsh-aliases#suffix-aliases)
+
+## ZSH global aliases
+A global alias is aggressive. Once registered, it replaces all occurrences of the alias name with the
+specified command. The definition follows the pattern
+
+`alias -g NF='./*(oc[1])'`
+This points to the newest file/dir in my current dir, and it is very easy for me to untar a downloaded
+file and then cd into it without caring about the name of the file/dir.
+`tar xf NF; cd NF`
+[source](https://thorsten-hans.com/5-types-of-zsh-aliases#global-aliases)
+[source](https://news.ycombinator.com/item?id=23315934)

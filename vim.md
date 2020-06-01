@@ -110,6 +110,15 @@ Close all other windows/splits
 Close all other tabs
 `:tabonly`
 
+## Zoom on one window
+If in vertical split mode:
+`Ctrl+w |`
+If in horizontal split mode:
+`Ctrl+w _`
+Reload the initial split structure:
+`Ctrl+w =`
+
+
 ## Spellcheck in vim
 While on a misspelled word use `z=` to list all variations.
 If you want to bring up only the dictionary omnicomplete do a `<C-x><C-k>`.

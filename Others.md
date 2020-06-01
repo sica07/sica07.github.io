@@ -96,3 +96,14 @@ Or, use zsh with vim navigation :)
 }
 ```
 [source](https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#for-userchromecss)
+
+## Copying gpg keys between machines
+On the source machine:
+`gpg --export ID > public.key`
+`gpg --export-secret-key ID > public.key`
+On the destination machine:
+`gpg --import public.key`
+`gpg --import private.key`
+
+[source](https://unix.stackexchange.com/questions/184947)
+
