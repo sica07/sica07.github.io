@@ -86,3 +86,11 @@ file and then cd into it without caring about the name of the file/dir.
 `tar xf NF; cd NF`
 [source](https://thorsten-hans.com/5-types-of-zsh-aliases#global-aliases)
 [source](https://news.ycombinator.com/item?id=23315934)
+
+## Mount folder/filesystem through SSH
+
+Install SSHFS.
+
+`sshfs name@server:/path/to/folder /path/to/mount/point`
+
+[source](https://www.commandlinefu.com/commands/view/193/mount-folderfilesystem-through-ssh)
