@@ -1,17 +1,5 @@
 # Git
 [<TIL](Programming.md)
-- [Fixing mistakes](#Fixing mistakes)
-- [Tagging versions](#Tagging versions)
-- [Delete all untracked files](#Delete all untracked files)
-- [Untrack a file or a directory without deleting it](#Untrack a file or a directory without deleting it)
-- [Diffing with Patience algorithm](#Diffing with Patience algorithm)
-- [Check to see all the changes in a commit](#Check to see all the changes in a commit)
-- [Git philosophy](#Git philosophy)
-    - [Goals](#Git philosophy#Goals)
-    - [Implementation](#Git philosophy#Implementation)
-    - [Conclusion](#Git philosophy#Conclusion)
-- [Fetch vs. Pull](#Git philosophy#Fetch vs. Pull)
-
 
 ## Fixing mistakes
 1. Spelled last commit message wrong
