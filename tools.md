@@ -1,7 +1,5 @@
 # Tools
 [<TIL](Programming.md)
-- [Tools for php development](#Tools for php development)
-- [Contact form](#Contact formhttpsformspreeio)
 
 ## Tools for php development
 `composer require --dev doctrine/coding-standard`

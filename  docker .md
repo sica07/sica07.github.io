@@ -1,4 +1,5 @@
 # Docker
+[<TIL](Programming.md)
 
 ## node_modules directory not accessible after npm packages installation
 Because we bind $HOME/app inside the container to the application folder
@@ -15,3 +16,6 @@ volumes:
 ```
 
 [Source](https://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html)
+
+## Run commands inside the docker while outside it
+`docker exec container_name bash -c "php composer.phar dump-autoload"`

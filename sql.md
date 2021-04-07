@@ -1,13 +1,5 @@
 # SQL
 [<TIL](Programming.md)
-- [Setting a foreign key](#Setting a foreign key)
-        - [Mandatory](#Setting a foreign key#Mandatory)
-        - [Debugging](#Setting a foreign key#Debugging)
-- [Show Create Statement for a table](#Show Create Statement for a table)
-- [Show indexes for a table](#Show indexes for a table)
-- [Profiling mysql queries](#Profiling mysql queries)
-    - [[modern/new profiling method](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html)](#Profiling mysql queries#[modern/new profiling method](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-query-profiling.html))
-    - [[will be deprecated mysql profiling](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html)](#Profiling mysql queries#[will be deprecated mysql profiling](http://web.archive.org/web/20110609054749/http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html))
 
 ##Setting a foreign key
 Example:
@@ -235,6 +227,38 @@ SQLite really is a "file-format with a query language" rather than a "small data
 
 If your data-access scenario is read-mostly write-sporadically, and your data being in a single place is ok, SQLite is fine.
 
+An embedded DBMS is geared towards serving a single purpose-built client, which is great for a desktop application that wants a reliable way to store user data.
+Once you have multiple clients being developed and running concurrently, and you have production data (customer accounts that are effectively legal documents that must be preserved at all times) you want that DBMS to be an independent component. It's not principally about the concurrent performance, rather it's the administrative tasks.
+That requires a level of configuration and control that is contrary to the mission of SQLite to be embedded. They don't, and shouldn't, add that kind of functionality.
+
+It also doesn't have strong/static typing (it's dynamically typed) so you have to typecheck your inputs or do type coercion upon read.
+And it doesn't have a native date type. Date handling has to be handled at the application layer. It can be tricky to do massive time-series calculations or date-based aggregations.
+You can use integers or text types to represent dates, but this open-endedness means you can't share your db because everyone implements their own datetime representation.
+
 [source 1](https://news.ycombinator.com/item?id=23281994)
 [source 2](https://www.sqlite.org/whentouse.html)
+[source 3](https://news.ycombinator.com/item?id=26581170)
+[source 4](https://news.ycombinator.com/item?id=26581891)
 
+## Sqlite awesome capabilities
+
+- create tables from csv files: `.import --csv city.csv city`
+- export data as csv or json:
+```
+.mode json
+.output city.json
+select city, foundation_year, timezone from city limit 10;
+.shell cat city.json`
+```
+- analize and work with json files:
+```
+select
+  json_extract(value, '$.iso.code') as code,
+  json_extract(value, '$.iso.number') as num,
+  json_extract(value, '$.name') as name,
+  json_extract(value, '$.units.major.name') as unit
+from
+  json_each(readfile('currency.sample.json'))
+;
+```
+[source](https://antonz.org/sqlite-is-not-a-toy-database)

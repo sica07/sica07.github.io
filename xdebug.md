@@ -48,7 +48,8 @@ services:
 
 We will define the following environment variables:
 
-**PHP_IDE_CONFIG** - This variable defines the server configuration associated with the application. More on this later.
+**PHP_IDE_CONFIG** - This variable defines the server configuration associated with the application.
+
 **XDEBUG_CONFIG** - This variable allows to define some Xdebug configurations. The "remote host" is the private ip of your host machine (the one your PHPStorm is running). The "remote_port" is the port that PHPStorm will be listening for incoming Xdebug connections. These two settings allow PHPStorm and Xdebug to communicate. It wont work without this.
 
 We will add them to our _.env_ file like this:

@@ -12,6 +12,7 @@
 ## [Vim](vim.md)
 ## [xdebug](xdebug.md)
 ## [js](js)
+## [Python](Python)
 
 
 

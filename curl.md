@@ -1,10 +1,5 @@
-
 # Networking
 [<TIL](Programming.md)
-- [Determine the IP of a domain](#Determine the IP of a domain)
-- [How to make a POST request with :curl: from :command line:](#How to make a POST request with :curl: from :command line:)
-- [Check if a port is in use](#Check if a port is in use)
-- [Multiple ssh keys](#Multiple ssh keys)
 
 ## Determine the IP of a domain
 `$ host domainname.com`
@@ -13,7 +8,7 @@ or more detailed info by using:
 
 `$ dig domainname.com`
 
-[inspiration](https://github.com/jbranchaud/til/blob/master/devops/determine-the-ip-address-of-a-domain.md)
+[src](https://github.com/jbranchaud/til/blob/master/devops/determine-the-ip-address-of-a-domain.md)
 
 ## How to make a POST request with :curl: from :command line:
 `curl --data "param1=value1&param2=value2" https://example.com/resource.cgi`

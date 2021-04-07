@@ -1,8 +1,5 @@
 # PHP
-
 [<TIL](Programming.md)
-- [Prevent adding a new property to a instance of a class](#Prevent adding a new property to a instance of a class)
-- [Checking if extension is enabled from the command line](#Checking if extension is enabled from the command line)
 
 ## Prevent adding a new property to a instance of a class
 

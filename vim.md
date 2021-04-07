@@ -1,13 +1,5 @@
 # VIM
 [<TIL](Programming.md)
-- [Favorite colorschemes](#Favorite colorschemes)
-    - [dark](#Favorite colorschemes#dark)
-    - [light](#Favorite colorschemes#light)
-- [Coc](#Coc)
-    - [Python](#Coc#Python)
-- [Xdebug with Vim and Docker](#Xdebug with Vim and Docker)
-- [Close all other](#Close all other)
-- [Spellcheck in vim](#Spellcheck in vim)
 
 ## Favorite colorschemes
 
@@ -22,6 +14,8 @@
 * desertEx
 * twilight
 * gruvbox
+* nord
+* palenight
 
 ### light
 * _whitebox_
@@ -141,3 +135,40 @@ and then, in ex mode, run the command:
 and will create the table inside sqlite db.
 
 [source](https://dl.suckless.org/slcon/2019/slcon-2019-03-marc_chantreux-acme_changed_my_life.webm)
+
+
+## Open a file and go to specific line
+`$ nvim +10 test.py`
+or if you already are inside vim:
+`:e +10 test.py`
+
+[source](https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/#open-a-file-and-go-to-specific-line)
+
+## Abbreviations
+The command for Insert mode abbreviations looks like this:
+```
+:iabbrev [<expr>] [<buffer>] {abbreviation} {expansion}
+
+    <expr> - stands for Vimscript expression to create the expansion.
+    <buffer> - means that it only applies to the current buffer.
+    {abbreviation} - is the thing you type, or your “trigger”
+    {expansion} - is your final outcome
+```
+Anything that’s inside a [] is optional.
+
+Run this command in your Vim: `:iabbrev teh the`. Now enter the Insert mode and type teh end. As soon as you hit Space after typing the teh, Vim will replace it with the.
+Of course, you can store all of your abbreviations in your .vimrc file.
+Other examples
+```
+iabbrev @@ hi@jovica.org
+iabbrev <expr> ddd strftime('%c')
+iabbrev cc /*<CR><CR>/<Up>
+```
+Let’s say we want to make one abbreviation for printing a string in Python and Java.
+```
+"python
+autocmd Filetype python :iabbrev ppp print("");<left><left><left>
+"java
+autocmd FileType java :iabbrev ppp System.out.println("");<left><left><left>
+```
+[soruce](https://jovica.org/posts/vim_abbreviations/)

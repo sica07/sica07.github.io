@@ -1,10 +1,5 @@
 # Bash
 [<TIL](Programming.md)
-- [Diff in one line from two files](#Diff in one line from two files)
-- [Printing from command line](#Printing from command line)
-- [Add suffix to filename](#Add suffix to filename)
-- [Saying Yes](#Saying Yes)
-- [Print all env variables](#Print all env variables)
 
 ## Diff in one line from two files
 Have you ever done something like this?
@@ -49,7 +44,7 @@ e.g to change the name of a file from old.name to old.name_backup:
 
 ## Check if a command succeeded in bashscript
 You could evaluate the _exit status_:
-```bash
+```
 some_command
 if [ $? -neq 0 ]; then
     echo "FAIL"
@@ -68,7 +63,7 @@ fi
 ## ZSH suffix aliases
 With suffix aliases, you can launch files with a specific extension (or suffix) in your favorite tool.
 To register a suffix alias, we use the `alias -s extension=name-of-the-tool` pattern.
-```bash
+```
 alias -s pdf=zathura
 alias -s {ape,avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,ogm,wav,webm}=mpv
 alias -s {jpg,jpeg,png}=feh
@@ -94,3 +89,21 @@ Install SSHFS.
 `sshfs name@server:/path/to/folder /path/to/mount/point`
 
 [source](https://www.commandlinefu.com/commands/view/193/mount-folderfilesystem-through-ssh)
+
+## Easy access to often executed commands
+
+When using reverse-i-search you have to type some part of the command that you want to retrieve.
+It's possible to label your commands and access them easily by pressing ^R and typing the label (should be short and descriptive).
+
+`$ some_very_long_and_complex_command # label`
+[source](https://www.commandlinefu.com/commands/view/3384/easy-and-fast-access-to-often-executed-commands-that-are-very-long-and-complex.)
+
+## Show apps that use internet connection at the moment
+
+`lsof -P -i -n`
+[source](https://www.commandlinefu.com/commands/view/3542/show-apps-that-use-internet-connection-at-the-moment.-multi-language)
+
+## Save command output to image
+
+`$ some_command | convert label:@- some_name.png`
+[source](https://www.commandlinefu.com/commands/view/9104/save-command-output-to-image)

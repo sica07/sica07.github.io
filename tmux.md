@@ -1,8 +1,5 @@
 # Tmux
 [<TIL](Programming.md)
-- [Fix vim color issues in tmux](#Fix vim color issues in tmux)
-- [Create a new named session with root directory](#Create a new named session with root directory)
-- [Hide status bar](#Hide status bar)
 
 ## Fix vim color issues in tmux
 1. In **.tmux.conf** add:
@@ -33,22 +30,31 @@ This will tell vim the escape codes. It's explained in `:h xterm-true-color`.
 ## Working with sessions
 List all sessions:
 `tmux ls`
+
 Attach to a session:
 `tmux a -t old_session`
+
 Create new session:
 `tmux new -s session_name`
+
 Switch to previous session:
 `ctrl-b )`
+
 Switch to next session:
 `ctrl-b (`
+
 Detach the session:
 `:detach`
+
 Kill a specific session:
 `tmux kill-session -t old_session`
+
 Kill all tmux open sessions:
 `:kill-server`
+
 Kill all _other_sessions:
 `tmux kill-session -a`
+
 [source](https://www.usenix.org/sites/default/files/conference/protected-files/lisa19_maheshwari.pdf)
 [source](https://askubuntu.com/a/868194)
 

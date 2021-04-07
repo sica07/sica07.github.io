@@ -1,12 +1,5 @@
 # Laravel
 [<TIL](Programming.md)
-- [Eloquent return only/latest n rows](#Eloquent return only/latest n rows)
-- [Redirect to Controller method with parameters](#Redirect to Controller method with parameters)
-- [dd() at the end of a Eloquent sentence](#dd() at the end of a Eloquent sentence)
-- [auth() in Blade](#auth() in Blade)
-- [hasMany with specific checks](#hasMany with specific checks)
-- [Where date methods in Eloquent](#Where date methods in Eloquent)
-- [Run specific migration directory](#Run specific migration directory)
 
 ## Eloquent return only/latest n rows
 
@@ -25,12 +18,12 @@ $incidents = Incident::where('monitor_id','=',1)->take(10)->get();
 
 ## Redirect to Controller method with parameters
 
-```php
+```
 return redirect()->action('SomeController@method', ['param' => $value]);
 ```
 
 ## dd() at the end of a Eloquent sentence
-```php
+```
 $users = User::where('name', 'Mary')->get()->dd();
 ```
 [source](https://twitter.com/dailylaravel/status/1046716110463291392)
@@ -45,12 +38,12 @@ To check whether an use is authenticated or not, use the `@auth` directive:
 
 ## hasMany with specific checks
 Filter out records that have _n_ amount of children records:
-```php
+```
 $authors = Author::has('books', '>', 5)->get();
 ```
 
 ## Where date methods in Eloquent
-```php
+```
 $items = Item::whereMonth('created_at', '12')->get();
 $items = Item::whereDay('created_at', '31')->get();
 $items = Item::whereYear('created_at', '2017')->get();
