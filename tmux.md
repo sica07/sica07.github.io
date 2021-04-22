@@ -16,11 +16,22 @@ Where 'xterm-256color' should be whatever your $PATH is outside of tmux.
    ```
 This will tell vim the escape codes. It's explained in `:h xterm-true-color`.
 
+## Fix issue with italics inside tmux
+1. Create tmux-256color.terminfo
+   ```
+   tmux-256color|screen with 256 colors and italic,
+    sitm=\E[3m, ritm=\E[23m,
+    use=screen-256color,
+   tic tmux-256color.terminfo
+```
+
+2. `set -g default-terminal "tmux-256color"` in .tmux.conf
+[src](https://github.com/tmux/tmux/issues/377#issuecomment-212541169)
 
 ## Create a new named session with root directory
 `$ tmux new -s custom_name -c ~/custom/directory`
 
-[inspiration](https://github.com/jbranchaud/til/blob/master/tmux/change-base-directory-of-existing-session.md)
+[src](https://github.com/jbranchaud/til/blob/master/tmux/change-base-directory-of-existing-session.md)
 
 ## Hide status bar
 `:set status off`

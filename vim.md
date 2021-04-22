@@ -172,3 +172,45 @@ autocmd Filetype python :iabbrev ppp print("");<left><left><left>
 autocmd FileType java :iabbrev ppp System.out.println("");<left><left><left>
 ```
 [soruce](https://jovica.org/posts/vim_abbreviations/)
+
+## Fugitive
+## Common git tasks
+`:Gwrite` - git add current file
+`:Gread` - git checkout current file (revert to last checked in version)
+`:Gmove` - git move/rename the current file
+
+### Merge conflicts with Gdiff
+
+`(master)$ git merge feature`
++---------
+| **target(HEAD/master)** | **working copy** | **merge (feature)** |
++---------
+| builds:                 | builds:          | builds:             |
+| main:                   | main:            | main:               |
+| env:                    | env:             | env:                |
+| -CGO_ENABLED=1          | <<<<<HEAD        | -CGO_ENABLED=0      |
+| -SOMEENV=true           | -CGO_ENABLED=1   | -OTHERNEV=off       |
+| ----------              | -SOMEENV=true    | -------             |
+| --------                | =====            | -----               |
+| -----                   | -CGO_ENABLED=0   | ------              |
+| ----                    | -OTHERNEV=off    | ----                |
+| -----                   | >>>>>master      | -----               |
+| binary: fed             | binary: fed      | binary: fed         |
++----------
+**TIP:** The arrows of the diff syntax point to the specific window of the split
+(<<<HEAD left window (//2), >>>master right window(//3))
+
+`:diffget 2` fetch hunk from the target parent (left)
+`:diffget 3` fetch hunk from the merge parent (right)
+`:Gwrite!` write/stage the current file to the index
+
+Or use `:diffput` and put the hunk from the current window (target/merge)
+to the working copy. Using it like this, the `:diffput` command requiers no
+argument, so the shorthand `:dp` command can be used.
+
+**Tip** in a 2-way diff, the diffget command require no argument so the
+shorthand `:do` command can be used.
+
+`[c` jump to previous hunk
+`]c` jump to nex hunk
+[src](http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/)
