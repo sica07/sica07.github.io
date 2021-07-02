@@ -1,4 +1,5 @@
 # Life hacks for programmers
+[<TIL](Programming.md)
 
 ## Learn from your bugs
 In his book Antifragile, Nassim Nicholas Taleb writes:
