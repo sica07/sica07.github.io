@@ -138,3 +138,19 @@ This is really handy for things like accessing otherwise unreachable resources o
 It is also handy to be able to put all your web traffic as originating from a remote VPS with no advanced setup required.
 
 [Source]( https://news.ycombinator.com/item?id=23027447 )
+
+## Closing/opening ports:
+Check the status of all ports with:
+
+`sudo netstat -lnp`
+
+Close and/or open ports with:
+
+```
+sudo ufw allow 22
+
+sudo ufw deny 22
+```
+
+[src](https://askubuntu.com/questions/410218/how-to-close-an-open-port-in-ubuntu)
+

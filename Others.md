@@ -2,6 +2,10 @@
 [<TIL](Programming.md)
 
 ## Disable capslock
+Short version (tested in ubuntu):
+
+`setxkbmap -option caps:none`
+
 Try creating the file 10-nocaps.conf with the following content:
 
 ```
@@ -13,6 +17,7 @@ EndSection
 ```
 
 ...and place it in either /etc/X11/xorg.conf.d or /usr/share/X11/xorg.conf.d (depending on which folder your distro uses) and log out and back in again to test.
+
 
 
 ## Creating a bootable USB using dd
@@ -129,3 +134,8 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-10 "['<Super><Shift>0']"
 ```
 [source](https://github.com/pop-os/shell/issues/142#issuecomment-780282706)
+
+## Enable right-click functionality for touchpad
+`$ sudo gsettings set org.gnome.desktop.peripherals.touchpad click-method areas`
+
+[src](https://notesread.com/how-to-enable-ubuntu-touchpad-right-click-button-if-it-doesnt-work/)

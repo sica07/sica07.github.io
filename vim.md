@@ -214,3 +214,15 @@ shorthand `:do` command can be used.
 `[c` jump to previous hunk
 `]c` jump to nex hunk
 [src](http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/)
+
+## Automated file templates
+```
+autocmd BufNewFile readme.md 0r ~/skeletons/readme.md
+autocmd BufNewFile *.sh 0r ~/skeletons/bash.sh
+```
+* `autocmd` – run this automatically on some event
+* `BufNewFile` – this is Vim’s new file event
+* `readme.md` – this is the pattern you want the new file to match
+* `0r` – read into the buffer starting at line 0, the first line
+* `~/skeletons/readme.md` – the file to read in
+[src](https://vimtricks.com/p/automated-file-templates/)

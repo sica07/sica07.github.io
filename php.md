@@ -1,6 +1,20 @@
 # PHP
 [<TIL](Programming.md)
 
+## Error logging
+
+**IMPORTANT:** `ini_set` does only work if that code is executed. Not useful for code that
+has _parse errors_ because the error will be before the code is executed.
+Instead write those changes into the _php.ini_.
+
+```
+error_reporting(E_ALL);
+ini_set('ignore_repeated_errors', TRUE);
+ini_set('display_errors', FALSE);
+ini_set("log_errors", TRUE);
+ini_set('error_log', config('error_file'));
+```
+[src](https://stackoverflow.com/questions/3531703/how-do-i-log-errors-and-warnings-into-a-file)
 ## Prevent adding a new property to a instance of a class
 
 ```PHP
