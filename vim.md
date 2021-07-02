@@ -182,9 +182,9 @@ autocmd FileType java :iabbrev ppp System.out.println("");<left><left><left>
 ### Merge conflicts with Gdiff
 
 `(master)$ git merge feature`
-+---------
+
 | **target(HEAD/master)** | **working copy** | **merge (feature)** |
-+---------
+|-------------------------|------------------|---------------------|
 | builds:                 | builds:          | builds:             |
 | main:                   | main:            | main:               |
 | env:                    | env:             | env:                |
@@ -196,7 +196,7 @@ autocmd FileType java :iabbrev ppp System.out.println("");<left><left><left>
 | ----                    | -OTHERNEV=off    | ----                |
 | -----                   | >>>>>master      | -----               |
 | binary: fed             | binary: fed      | binary: fed         |
-+----------
+
 **TIP:** The arrows of the diff syntax point to the specific window of the split
 (<<<HEAD left window (//2), >>>master right window(//3))
 
