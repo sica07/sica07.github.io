@@ -4,6 +4,9 @@
 ## Favorite colorschemes
 
 ### dark
+* nord ❤️
+* palenight
+* challenger_deep
 * atom
 * dusk
 * dracula
@@ -14,10 +17,9 @@
 * desertEx
 * twilight
 * gruvbox
-* nord
-* palenight
 
 ### light
+* paper ❤️
 * _whitebox_
 * base16-tomorrow
 * base16-github

@@ -1,5 +1,14 @@
 # Networking
 [<TIL](Programming.md)
+## Authorization header missing in PHP POST request
+
+Add the following lines to _.htaccess_ file
+
+```
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+```
+[src](https://stackoverflow.com/a/26791450/174320)
 
 ## Determine the IP of a domain
 `$ host domainname.com`
