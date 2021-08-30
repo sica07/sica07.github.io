@@ -163,3 +163,29 @@ sudo ufw deny 22
 
 [src](https://askubuntu.com/questions/410218/how-to-close-an-open-port-in-ubuntu)
 
+## Client-Bridge configuration for router
+* Go FIRST to wireless, wireless security and enter the security type and key that matches your primary router.
+* Hit SAVE, (or APPLY if you wish to)
+* Go to the wireless, basic settings page and change the wireless mode to Client Bridge.
+* Your wireless network mode, channel and encryption should be set to the same as the primary router.
+* If you are using N only or Mixed with N, set your wireless channel width to match your primary
+* Set the wireless network name to exactly the same as your primary router. Make sure spelling and capitalization match.
+* Hit SAVE at the bottom. Then hit APPLY.
+* Check to make sure all the configurations, including the mode, saved and the mode is still client bridge. If any changed, fix them, and save again.
+* Goto Setup, basic setup and enter a router Local IP address of 192.168.1.6. (Presuming your primary router is on the 192.168.1.x subnet. Client bridge must match the subent of the primary router) Leave subnet mask at 255.255.255.0.
+* Set the Gateway IP to your primary router. (Likely 192.168.1.1)
+* Leave Local DNS blank (Some posts say you need to set local DNS to the same as the gateway IP so if you cannot access the internet, put the gateway in this section)
+* Check Assign Wan port to a switch, if you wish to.
+* Change your timezone and DST to match where you are.
+* Hit Apply.
+* Set your browser to 192.168.1.6 (or 192.168.A.6 with A=0 or whatever, if your subnet is different) and login to your router
+* Goto Security, Firewall. Under Block Wan Requests, uncheck everything but "Filter Multicast" (Leave Filter multicast checked).
+* Hit Save
+* Disable SPI Firewall
+* Hit Apply.
+* Go to setup/advanced routing and change the operating mode from "gateway" to router. Hit Apply.
+* Click "add" to add a Virtual Interface
+* Enter a SSID
+* Go to Wireless > Wireless Security and set the password
+
+

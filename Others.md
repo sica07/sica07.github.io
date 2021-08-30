@@ -139,3 +139,57 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-10 "['<Super><S
 `$ sudo gsettings set org.gnome.desktop.peripherals.touchpad click-method areas`
 
 [src](https://notesread.com/how-to-enable-ubuntu-touchpad-right-click-button-if-it-doesnt-work/)
+
+## Support md files on firefox
+Firefox on Linux may not know how to handle markdown files by default.
+These mime types are stored in a file indicated by helpers.private_mime_types_file, by default it is ~/.mime.types. Create this file if it does not exist, otherwise edit it, and add the following line:
+
+```
+type=text/plain exts=md,mkd,mkdn,mdwn,mdown,markdown, desc="Markdown document"
+```
+[src](https://github.com/KeithLRobertson/markdown-viewer#support-for-local-files-on-linux)
+
+## i3 with gaps and transparent terminal
+### [ i3-gaps ](https://github.com/Airblader/i3)
+* install dependencies:
+    `$sudo apt-get install gcc make dh-autoreconf libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0-dev`
+* install i3-gaps:
+```
+cd /path/where/you/want/the/repository
+```
+
+* clone the repository
+```
+git clone https://www.github.com/Airblader/i3 i3-gaps
+cd i3-gaps
+```
+
+* compile & install
+```
+autoreconf --force --install
+rm -rf build/
+mkdir -p build && cd build/
+```
+
+* Disabling sanitizers is important for release versions!
+The prefix and sysconfdir are, obviously, dependent on the distribution.
+```
+../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
+make
+sudo make install
+```
+
+### [ compton ](https://github.com/chjj/compton)
+`$ sudo apt-get install compton && compton -bcf`
+* **b:** run in background
+* **c:** shadow
+* **f:** fade
+[config file sample](https://ubuntuforums.org/showthread.php?t=2144468&page=3&s=54994dfe49e892664f5b1ae1caf51ffc)
+
+### [xfce-terminal]()
+* set transparency to 80%
+* set font to _Fira Code_ 14
+* set colorscheme to Tango
+
+
+

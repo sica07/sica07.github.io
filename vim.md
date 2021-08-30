@@ -228,3 +228,11 @@ autocmd BufNewFile *.sh 0r ~/skeletons/bash.sh
 * `0r` – read into the buffer starting at line 0, the first line
 * `~/skeletons/readme.md` – the file to read in
 [src](https://vimtricks.com/p/automated-file-templates/)
+
+## The path
+To add directories to path just use `:set path=`
+Common cases:
+`set path=.,**` - add current file and all directories relative to current working directory
+`set path=.,app/**` - add current file and all children relative to ./app folder
+
+[src](https://www.youtube.com/watch?v=Gs1VDYnS-Ac&t=1069s)
