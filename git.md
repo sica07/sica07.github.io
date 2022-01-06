@@ -92,6 +92,11 @@ https://gist.github.com/roryokane/6f9061d3a60c1ba41237
 ## Check to see all the changes in a commit
 `$ git whatchanged`
 
+## List all commits that changed a specific file
+`$ git log --follow -- filename`
+`--follow` accounts for renames
+[src](https://stackoverflow.com/a/8808453)
+
 ## Git philosophy
 ### Goals
 Git was designed to support a more distributed model with no need for a central repository
