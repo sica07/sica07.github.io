@@ -1,6 +1,7 @@
 ## [Bash](bash.md)
 ## [Docker]( docker )
 ## [Erlang](Erlang.md)
+## [Firefox](Firefox.md)
 ## [GIT](git.md)
 ## [HTML](HTML.md)
 ## [JS](js.md)
