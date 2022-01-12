@@ -55,6 +55,10 @@ The `lsof` command is used to _list open files_.
 `cd ~/.ssh`
 `scp -P 2222 id_rsa.pub user@domain.net:.ssh/authorized_keys`
 
+or  the more simple solution:
+
+`ssh-copy-id -i ~/.ssh/id_rsa.pub user@domain`
+
 4. rename id_rsa to domain_rsa
 
 `mv id_rsa domain_rsa`
