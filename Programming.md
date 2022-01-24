@@ -9,6 +9,7 @@
 ## [Linux](Others.md)
 ## [network](curl.md)
 ## [PHP](php.md)
+## [ImageMagick](ImageMagick)
 ## [PhpConference2019](PhpConference2019.md)
 ## [Programmer life hacks](Programmer_life_hacks.md)
 ## [Python](Python.md)
