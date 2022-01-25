@@ -192,4 +192,8 @@ sudo ufw deny 22
 * Enter a SSID
 * Go to Wireless > Wireless Security and set the password
 
+# List all apps that use the internet connection at the moment
 
+`lsof -P -i -n`
+
+[src](https://www.commandlinefu.com/commands/view/3542/show-apps-that-use-internet-connection-at-the-moment.-multi-language)
