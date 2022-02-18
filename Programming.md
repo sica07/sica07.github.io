@@ -1,4 +1,5 @@
 ## [Bash](bash.md)
+## [Data types](programming_datatypes.md)
 ## [Docker]( docker )
 ## [Erlang](Erlang.md)
 ## [Firefox](Firefox.md)
