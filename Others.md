@@ -39,6 +39,7 @@ on the same USB drive one or more times.
 
 ## Add suffix to filename
 e.g to change the name of a file from old.name to old.name_backup:
+
 `mv old.name{,_backup}`
 
 
@@ -49,9 +50,13 @@ e.g to change the name of a file from old.name to old.name_backup:
 
 ## Watch/capture webcam feed
 `$ ffplay /dev/video0`
+
 `$ mpv /dev/video0`
+
 or
+
 `$ mpv av://v4l2:/dev/video0`
+
 `$ vlc v4l2:///dev/video0`
 
 [Source](https://unix.stackexchange.com/questions/3304/how-do-i-watch-my-webcams-feed-in-linux)
@@ -59,11 +64,17 @@ or
 ## How to install pass extensions
 This guide refers to extensions for passwordstore.org:
 `git clone https://github.com/browserpass/browserpass-native.git`
+
 `cd browserpass-native`
+
 `docker build -t browserpass-native .`
+
 `docker run --rm -v "$(pwd)":/src browserpass-native browserpass-linux64`
+
 `make BIN=browserpass-linux64 configure`
+
 `sudo make BIN=browserpass-linux64 install`
+
 `cp /usr/lib/browserpass/hosts/chromium/com.github.browserpass.native.json ~/.config/slimjet/NativeMessagingHosts/`
 
 [source](https://github.com/browserpass/browserpass-native#build-using-docker)
@@ -71,7 +82,9 @@ This guide refers to extensions for passwordstore.org:
 ## Edit a long command that you previously run
 After you run the wrong command (or the one you wan to change)
 run `fc`. It will open a vim buffer and paste the last command you run.
+
 Edit it and when you close vim, it will run the command.
+
 Or, use zsh with vim navigation :)
 
 [source](https://dl.suckless.org/slcon/2019/slcon-2019-03-marc_chantreux-acme_changed_my_life.webm)

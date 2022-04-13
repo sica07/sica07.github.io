@@ -36,6 +36,7 @@ or
 
 ## Check if a port is in use
 The `lsof` command is used to _list open files_.
+
 `$ lsof -i TCP:3000`
 
 [source](https://github.com/jbranchaud/til/blob/master/unix/check-if-a-port-is-in-use.md)

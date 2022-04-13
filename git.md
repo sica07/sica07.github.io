@@ -52,8 +52,10 @@
 ## Tagging versions
 Are you still not git tagging version?
 If so, you should automatically and for the logs you could just run
-"git log `git describe --tags --abbrev=0`..HEAD --oneline" which gives you
-all the change between now & the last version / tag and pipe that to your clipboard
+
+"git log `git describe --tags --abbrev=0`..HEAD --oneline" 
+
+which gives you all the change between now & the last version / tag and pipe that to your clipboard
 
 
 ## Delete all untracked files
