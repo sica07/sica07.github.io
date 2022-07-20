@@ -262,3 +262,37 @@ from
 ;
 ```
 [source](https://antonz.org/sqlite-is-not-a-toy-database)
+
+## Sqlite one line csv operations
+
+`$sqlite3 :memory: -cmd '.mode csv' -cmd '.import taxi.csv taxi' -cmd '.mode column' \`
+`'SELECT passenger_count, COUNT(*), AVG(total_amount) FROM taxi GROUP BY passenger_count'`
+
+[source](https://til.simonwillison.net/sqlite/one-line-csv-operations)
+
+### Soft deletion done right
+**Opinion 1:**
+
+The author is arguing against the use of "deleted" bool column to indicate
+deletion. His solution of moving deleted objects to their own table gives
+you the ability to un-delete, just as before. Only now, your queries and
+indexes are simpler and you get to use foreign keys and other useful futures.
+
+[src](https://news.ycombinator.com/item?id=32158162)
+
+**Opinion 2:**
+
+I just wanted to touch on the fact that eliding soft-deleted rows from
+queries is really, really easy - this article makes it out to be a
+constant headache but here's my suggested approach.
+```
+    ALTER TABLE blah ADD COLUMN deleted_at NULL TIMESTAMP;
+    ALTER TABLE blah RENAME TO blahwithdeleted;
+    CREATE VIEW blah (SELECT * FROM blahwithdeleted WHERE deleted_at IS NULL);
+```
+And thus your entire application just needs to keep SELECTing from blah
+while only a few select pieces of code related to undeleting things
+(or generating reports including deleted things) need to be shifted to
+read from blahwithdeleted.
+
+[src](https://news.ycombinator.com/item?id=32156461)

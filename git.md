@@ -53,7 +53,7 @@
 Are you still not git tagging version?
 If so, you should automatically and for the logs you could just run
 
-"git log `git describe --tags --abbrev=0`..HEAD --oneline" 
+"git log `git describe --tags --abbrev=0`..HEAD --oneline"
 
 which gives you all the change between now & the last version / tag and pipe that to your clipboard
 
@@ -97,7 +97,19 @@ https://gist.github.com/roryokane/6f9061d3a60c1ba41237
 ## List all commits that changed a specific file
 `$ git log --follow -- filename`
 `--follow` accounts for renames
+
 [src](https://stackoverflow.com/a/8808453)
+
+If you want to see the actual changes use:
+
+`$ git log -p filename`
+[src](https://techtldr.com/19-git-tips-for-everyday-use/#git-log)
+
+## Only log changes for some specific lines in file
+`$ git log -L 1,10:filename`
+
+[src](https://techtldr.com/19-git-tips-for-everyday-use/#log-lines)
+
 
 ## Git philosophy
 ### Goals
@@ -144,3 +156,15 @@ Git documentation – `git pull`:
   any pulled commits into the branch _you are currently working_ in.
 
 [source](https://stackoverflow.com/questions/292357/what-is-the-difference-between-git-pull-and-git-fetch)
+
+## tig blame
+To interactively browsing "git blame".  Simply run
+
+`tig blame FILE`
+
+and you see something very much like the output of "git blame", but
+you can now press "," to get to the "previous" line in history.  And
+press "<" to get back.  Use RET to look at the commit, and "q" to close
+the overview.
+
+[src](https://leahneukirchen.org/TIL)

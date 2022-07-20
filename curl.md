@@ -151,7 +151,7 @@ Now, when you use Firefox it is as if you are using Firefox on the machine you a
 This is really handy for things like accessing otherwise unreachable resources or other internal resources externally.
 It is also handy to be able to put all your web traffic as originating from a remote VPS with no advanced setup required.
 
-[Source]( https://news.ycombinator.com/item?id=23027447 )
+[Source](https://news.ycombinator.com/item?id=23027447)
 
 ## Closing/opening ports:
 Check the status of all ports with:

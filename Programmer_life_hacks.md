@@ -36,4 +36,4 @@ Suggested entry template:
 - write the entry immediately after it has been fixed. That’s when
   all the details are still fresh in my mind.
 
-[src]( https://henrikwarne.com/2016/04/28/learning-from-your-bugs/ )
+[src](https://henrikwarne.com/2016/04/28/learning-from-your-bugs)

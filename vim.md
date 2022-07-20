@@ -38,62 +38,43 @@ After installing the `python-coc` make sure you run:
 `CocCommand <CR>`  and select `python.setInterpreter`
 
 
-## Xdebug with Vim and Docker
+## Xdebug3 with Vim
 
-**mandatory settings:**
+### Install _vimspector.vim_
+```
+$ mkdir ~/.config/vimspector/configurations/linux/_all
+$ cd ~/.config/nvim/plugged/vimspector
+$ ./install_gadget.py --basedir $HOME/.config/vimspector --force-enable-php --update-gadget-config
+$ touch ~/.config/vimspector/configurations/linux/_all/config.json
+```
+Add the following content to config.json:
+```
+{
+  "configurations" : {
 
-in the _vdebug.vim_
-
-* **port: 10000**
-* **server: ''**
-* **path_maps** : {'/path/on/docker': '/path/on/local'}
-
-in the _xdebug.ini_
-
-* **xdebug.remote_host: your.local.machine.ip**
-* **xdebug.remote_port: 10000**
-* **xdebug.remote_enable: 1**
-
-1. Settings for vdebug.vim:
-
-    ```
-    let g:vdebug_options = {
-        \ "continuous_mode" : 0,
-        \ "port" : 10000,
-        \ "server" : '',
-        \ "timeout" : 20,
-        \ "on_close" : 'detach',
-        \ "break_on_open" : 0,
-        \ "ide_key" : '',
-        \ "debug_window_level" : 0,
-        \ "debug_file_level" : 0,
-        \ "debug_file" : "~/vdebug.log",
-        \ "watch_window_style" : 'expanded',
-        \ "marker_default" : '⬦',
-        \ "marker_closed_tree" : '▸',
-        \ "marker_open_tree" : '▾',
-        \ "path_maps" : {'/var/www/html': '/home/marius/Templates/FSPlaza/FSPlaza'}
-        \ }
-     ```
-
-2. Settings in xdebug.ini:
-
-    ```
-    xdebug.remote_enable = 1
-    xdebug.remote_autostart = 1
-    ;remote_host IP is your local machine IP, the one running vim
-    xdebug.remote_host = 192.168.1.116
-    ;xdebug.remote_connect_back = 1
-    xdebug.idekey = PHPDOCKER
-    xdebug.remote_port=10000
-    xdebug.remote_log = /var/log/xdebug_remote.log
-    ```
-
-**What does not work:**
-+ enabling `xdebug.remote_connect_back`
-+ setting the `server` for _vdebug_
-+ port _9000_ because _fpm_ is using it
-+ exposing port _10000_ on the _docker-compose.yml_. No need for that
+    "attach": {
+      "adapter": "vscode-php-debug",
+      "default": true,
+      "filetypes": [ "php" ],
+      "configuration": {
+        "name": "Listen for XDebug",
+        "type": "php",
+        "request": "launch",
+        "port": 9003,
+        "stopOnEntry": false,
+        "pathMappings": {
+          "/var/www/html/": "${workspaceRoot}"
+        }
+      }
+    }
+  }
+}
+```
+### How to use it
+When starting a debugging session:
+1. Add a breakpoint where interested <F9>
+2. open a file in the root folder and start `:call vimspector#Launch()`
+3. From here on everything should work as expected
 
 
 ## Close all other
@@ -236,3 +217,19 @@ Common cases:
 `set path=.,app/**` - add current file and all children relative to ./app folder
 
 [src](https://www.youtube.com/watch?v=Gs1VDYnS-Ac&t=1069s)
+
+## Find which plugin modified a variable
+
+`:verbose set VARIABLE`
+
+to show the value of VARIABLE and the file that least changed it, e.g.:
+```
+	:verbose set formatoptions
+	  formatoptions=jtcql
+	        Last set from ~/.vimrc
+
+	:verbose set commentstring
+	  commentstring=# %s
+        	Last set from /usr/share/vim/vim80/ftplugin/gitcommit.vim
+```
+[src](https://leahneukirchen.org/TIL)

@@ -205,4 +205,62 @@ sudo make install
 * set colorscheme to Tango
 
 
+## How to run both the integrated and the dedicated graphic cards
+```
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+```
+[src](https://askubuntu.com/questions/593938/how-to-run-both-intel-and-nvidia-graphics-card-driver-on-dual-monitor-setup)
+
+## Set default application with xdg
+1. find out the MIME type string:
+`$ file -i name_of_the.file`
+
+2. find out the name of the application .desktop file:
+`$ grep "application_name" -l -r /usr/share/applications`
+
+3. make the assignement:
+`$ xdg-mime default application_name file/type`
+
+Example:
+```
+$ file -i Broken_Blossoms.webm
+Broken_Blossoms.webm: video/webm; charset=binary
+$ grep "mpv" -l -r /usr/share/applications
+/usr/share/applications/mpv.desktop
+$ xdg-mime default mpv.desktop video/webm
+```
+
+[src](https://askubuntu.com/a/555110)
+
+
+## Add ssh key to remote server
+`ssh-copy-id -i ~/.ssh/id_rsa.pub YOUR_USER_NAME@IP_ADDRESS_OF_THE_SERVER`
+
+or
+
+`mkdir -p /home/user_name/.ssh && touch /home/user_name/.ssh/authorized_keys`
+
+and paste the public key to _authorized_keys_ file.
+
+
+Don't forget to:
+`chmod 700 /home/user_name/.ssh && chmod 600 /home/user_name/.ssh/authorized_keys`
+`chown -R username:username /home/username/.ssh`
+
+## kitty missing or unsuitable terminal error
+`kitty +kitten ssh myserver`
+
+[src](https://sw.kovidgoyal.net/kitty/faq.html#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer)
+## Load a small linux distro inside the /boot
+"Tiny Core's small enough that I'll often throw the entirety of it in /boot or /boot/EFI
+on my Linux desktops as a recovery environment.
+```
+root (hd0,1)
+    kernel /tinycore/vmlinuz tce=sda1/tinycore/tce vga=794
+    initrd /tinycore/core.gz
+```
+in GRUB's shell should do the trick no matter what might lurk in grub.cfg."
+
+[src](https://news.ycombinator.com/item?id=31979269)
 

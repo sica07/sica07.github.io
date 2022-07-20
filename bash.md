@@ -107,3 +107,7 @@ It's possible to label your commands and access them easily by pressing ^R and t
 
 `$ some_command | convert label:@- some_name.png`
 [source](https://www.commandlinefu.com/commands/view/9104/save-command-output-to-image)
+
+## Create multiple directory hierarchies in one shot:
+`$ mkdir -p first/second/third`
+[source](https://learnbyexample.github.io/cli-computing/managing-files-directories.html#mkdir)
