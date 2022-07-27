@@ -296,3 +296,42 @@ while only a few select pieces of code related to undeleting things
 read from blahwithdeleted.
 
 [src](https://news.ycombinator.com/item?id=32156461)
+
+### Database indexing keypoints
+* an index is an ordered representation of the indexed data. searching an ordered input is
+  faster than an unordered input
+* an index contains only the values of the columns you actually put the index on + row internal ID
+* index makes reading faster _but_ writing slower
+* using sql functions on a column will result in ignoring the index for that column: add index on the
+  function (postgresql) or on the generated column (mysql)
+* don't use `FORCE INDEX`
+* don't use indexes on DATE(TIME) columns. Use range (BETWEEN)
+* on multicolumn indexes, cardinality does not matter. Is the cardinality of the whole index that matters. Anyway, when comparing two _separate_ index choices (e.g `created_at_idx` vs `total_idx`), cardinality does matter. In this case `created_at_idx`
+  has a higher cardinality then `total_idx` (much higher unique values rate). As a rule of thumb, if a index has a very low cardinality (a value occurs in more than 20% of the rows) then such an index will be ignored. [scr](http://mysql.rjweb.org/doc.php/index_cookbook_mysql)
+* use a multi-column indexes from left to right, you can not skip columns:
+  Let's say we created the indexes in the `created_at_idx`, `total_idx`, `user_id_idx` order.
+  While the query condition looks only at `created_at` and `user_id` the index sorting
+  order is `created_at` -> `total` -> `user_id` so it's not skipping `total`.
+  `SELECT SUM(total) from users where CREATED_AT BETWEEN X and Y AND USER_ID=x;`
+* inequality operators on index columns cancel all the indexes after that. In the above examples, the
+  BETWEEN inequality operator on the `created_at` index column "cancels" the other two index columns
+  The solution is to reoder the index columns: `user_id`, `created_at`, `total`
+* Pay atention to the number of index columns! Remember that multi-column indexes are read
+  from left to right on every query. In the above example, the _users_ table has 3 index columns with
+  first being `user_id`. If we have a different query like:
+  `SELECT total from users where CREATED_AT BETWEEN X and Y;` it will do a _full_ index search on
+  `user_id` because we have that index column (even though is not used inside the query) and index columns
+  are sorted from left to right.
+
+[src](https://www.youtube.com/watch?v=HubezKbFL7E)
+
+### Optimising with EXPLAIN
+* EXPLAIN FORMAT=JSON _query_
+* if _type_ is `const` or `EQ_REF` it means that we are querying for unique values so no optimisation
+  is necessary as it not gonna get any faster
+* if _type_ is `ref` or `range` (e.g. where id > 15 and id < 30). This is quite ok because it will not
+  search on _all_ rows.
+* if _type_ is `index` is a full/all index scan (all ordered rows of that specfic column)
+* if _type_ is `ALL` is a full table scan, it does not use index at all. AVOID at _all_ cost
+
+[src](https://www.youtube.com/watch?v=HubezKbFL7E)
