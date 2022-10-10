@@ -142,6 +142,15 @@ bypass a bottleneck in the network.
 
 [Source](https://news.ycombinator.com/item?id=23026196)
 
+## SSH straight into tmux
+```
+Host example.org
+ RemoteCommand tmux new -A -s my_tmux_session
+```
+This will either attach to or create and attach to a session named my_tmux_session.
+
+[src](https://carlosbecker.dev/posts/ssh-tips-and-tricks/)
+
 ## Accessing internal resources externally via ssh
 
 `ssh -D9090 user@remote`

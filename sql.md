@@ -1,6 +1,11 @@
 # SQL
 [<TIL](Programming.md)
 
+[All you need to know:](http://mysql.rjweb.org)
+* [rule of thumb(s)](http://mysql.rjweb.org/doc.php/ricksrots)
+* [what datatype to use](http://mysql.rjweb.org/doc.php/schema_best_practices_mysql)
+* [indexes cookbok](http://mysql.rjweb.org/doc.php/index_cookbook_mysql)
+
 ##Setting a foreign key
 Example:
 ```sql

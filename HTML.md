@@ -58,3 +58,23 @@
 </html>
 ```
 [src](https://www.matuzo.at/blog/html-boilerplate/)
+
+# CSS code to look great nearly everywhere
+```css
+html {
+  max-width: 70ch;
+  padding: 3em 1em;
+  margin: auto;
+  line-height: 1.75;
+  font-size: 1.25em;
+}
+h1,h2,h3,h4,h5,h6 {
+  margin: 3em 0 1em;
+}
+p,ul,ol {
+  margin-bottom: 2em;
+  color: #1d1d1d;
+  font-family: sans-serif;
+}
+```
+[src](https://www.swyx.io/css-100-bytes)

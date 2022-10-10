@@ -32,12 +32,6 @@
 * kate
 
 
-## Coc
-### Python
-After installing the `python-coc` make sure you run:
-`CocCommand <CR>`  and select `python.setInterpreter`
-
-
 ## Xdebug3 with Vim
 
 ### Install _vimspector.vim_
@@ -95,6 +89,12 @@ If in horizontal split mode:
 Reload the initial split structure:
 `Ctrl+w =`
 
+## Indentation tips
+* `==` indent current line or `X==` indend current line and next X
+* `=%` indent to end of the method
+* `=ap` indend arround paragraph
+
+[src](https://t.co/Y7E4kv3BrT)
 
 ## Spellcheck in vim
 While on a misspelled word use `z=` to list all variations.
@@ -233,3 +233,20 @@ to show the value of VARIABLE and the file that least changed it, e.g.:
         	Last set from /usr/share/vim/vim80/ftplugin/gitcommit.vim
 ```
 [src](https://leahneukirchen.org/TIL)
+
+## Copy a line an paste it under the current line
+* `:<line number>copy.` or using the alias `:<line number>t.`
+* `:10,20t.` copy lines 10 to 20 and paste them below
+* `:+8t.` copye the line 8 lines _bellow_ the current line and paste it below
+* `:-8t.` copye the line 8 lines _above_ the current line and paste it below
+* `:t8` copy the current line and paste it below line 8
+
+[src](https://vimtricks.com/p/vim-copy-line/)
+
+## Find and run action over multiple files
+1. `:Ggrep needle` - Ggrep or grep or Ack or whatever search plugin
+2. `:cdo s/needle/replacement/gc | update` - itereates over every result from the quickfix list and
+interactively does the replacement
+
+[src](https://vimtricks.com/p/interactive-replace-across-files/)
+

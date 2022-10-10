@@ -110,6 +110,9 @@ If you want to see the actual changes use:
 
 [src](https://techtldr.com/19-git-tips-for-everyday-use/#log-lines)
 
+## How to compare same file from two different branches
+git diff mybranch master -- myfile.cs
+[src](https://stackoverflow.com/a/4099805)
 
 ## Git philosophy
 ### Goals
